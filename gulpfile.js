@@ -6,7 +6,6 @@ const gulp = require('gulp'),
     del = require('del'), //удаление файлов
     newer = require('gulp-newer'), //запускает таски только для изменившихся файлов.
     debug = require('gulp-debug'), //отобржает какие файлы пропускаются через gulp и что с ними происходит
-    autoprefixer = require('gulp-autoprefixer'), //проставляет вендорные преиксы в css
     browserSync = require('browser-sync').create(), //локальный сервер с livereload
     notify = require('gulp-notify'), //уведомление об ошибках
     plumber = require('gulp-plumber'), //отлавливаем ошибки на потоке
@@ -19,10 +18,8 @@ const gulp = require('gulp'),
     autoprefixer = require('autoprefixer'), //раставляет вендорные префиксы
     simplevars = require('postcss-simple-vars'), //работа с переменными
     nestedcss = require('postcss-nested'), //работа с вложенностями как в Sass
-    scss = require('postcss-scss');
-
-
-
+    scss = require('postcss-scss'), //синтаксис Sass
+    importcss = require('postcss-import'); //импорт файлов CSS
 
 // Очистка директории ------------------------------------------------------
 gulp.task('clean', function() {
@@ -72,8 +69,6 @@ gulp.task('pug:all', function() {
     .pipe(gulp.dest('build'))
 });
 
-
-
 //mixin and widgets
 gulp.task('mixins', function() {
     return gulp.src('src/pug/mixins/*.pug', {since: gulp.lastRun('mixins')})
@@ -98,19 +93,18 @@ gulp.task('pug:widgets', function() {
 });
 
 
-//sass
-gulp.task('sass', function() {
-
-
+//css
+gulp.task('css', function() {
     var processors = [
     				autoprefixer({ browsers: ['last 2 versions'] }),
     				mqpacker,
     				simplevars,
-				    nestedcss
+				    nestedcss,
+                    importcss
     ];
-    return gulp.src('build/css/main.css')
+    return gulp.src('src/scss/main.css')
     .pipe(plumber({ errorHandler: notify.onError() }))
-    .pipe(newer('build/css'))
+    // .pipe(newer('build/css'))
     .pipe(sourcemaps.init())
     .pipe(postcss(processors, {syntax: scss}))
     .pipe(debug({ title: 'css:' }))
@@ -122,7 +116,7 @@ gulp.task('sass', function() {
 gulp.task('pics', function() {
     return gulp.src('src/scss/pics/**/*.{jpg,jpeg,png,svg}', {since: gulp.lastRun('pics')})
     .pipe(plumber({ errorHandler: notify.onError() }))
-    .pipe(newer('build/css/pics'))
+    // .pipe(newer('build/css/pics'))
     .pipe(imagemin({
         progressive: true,
         svgoPlugins: [{ removeViewBox: false }],
@@ -209,7 +203,7 @@ gulp.task('fonts', function() {
 
 // Отслеживание файлов--------------------------------------------
 gulp.task('watch', function() {
-    gulp.watch('src/scss/**/*.scss', gulp.series('sass'));
+    gulp.watch('src/scss/**/*.css', gulp.series('css'));
     gulp.watch('src/scss/pics/**/*.*', gulp.series('pics'));
     gulp.watch('src/scss/pics/sprite/svg/**/*.svg', gulp.series('svg:sprite'));
     gulp.watch('src/html/*.html', gulp.series('html'));
@@ -227,7 +221,7 @@ gulp.task('watch', function() {
 // Для продакшна -------------------------------------------------
 gulp.task('build', gulp.series(
     'clean',
-    gulp.parallel('sass', 'html', 'pug', 'js', 'fonts', 'pics', 'img', 'svg:sprite')));
+    gulp.parallel('css', 'html', 'pug', 'js', 'fonts', 'pics', 'img', 'svg:sprite')));
 
 
 // Для запуска сервера--------------------------------------------

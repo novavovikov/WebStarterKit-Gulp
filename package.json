@@ -4,7 +4,9 @@
   "description": "",
   "main": "gulpfile.js",
   "devDependencies": {
+    "autoprefixer": "^6.5.1",
     "browser-sync": "^2.13.0",
+    "css-mqpacker": "^5.0.1",
     "del": "^2.2.1",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-debug": "^2.1.2",
@@ -21,7 +23,9 @@
     "gulp-svg2png": "^2.0.0",
     "gulp-util": "^3.0.7",
     "imagemin-pngquant": "^5.0.0",
-    "postcss-scss": "^0.1.9"
+    "postcss-nested": "^1.0.0",
+    "postcss-scss": "^0.1.9",
+    "postcss-simple-vars": "^3.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
