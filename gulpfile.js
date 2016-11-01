@@ -15,10 +15,10 @@ const gulp = require('gulp'),
     svgSprite = require("gulp-svg-sprites"), //SVG спрайты
     postcss = require('gulp-postcss'), //post Css для CSS
     mqpacker = require("css-mqpacker"), //Пакуем медиа-зпросы в конце css
-    autoprefixer = require('autoprefixer'), //раставляет вендорные префиксы
     simplevars = require('postcss-simple-vars'), //работа с переменными
     nestedcss = require('postcss-nested'), //работа с вложенностями как в Sass
     scss = require('postcss-scss'), //синтаксис Sass
+    cssnext = require('postcss-cssnext'), //синтаксис Sass
     importcss = require('postcss-import'); //импорт файлов CSS
 
 // Очистка директории ------------------------------------------------------
@@ -96,13 +96,13 @@ gulp.task('pug:widgets', function() {
 //css
 gulp.task('css', function() {
     var processors = [
-    				autoprefixer({ browsers: ['last 2 versions'] }),
-    				mqpacker,
-    				simplevars,
-				    nestedcss,
-                    importcss
+                    nestedcss,
+                    simplevars,
+                    importcss,
+                    cssnext,
+                    mqpacker
     ];
-    return gulp.src('src/scss/main.css')
+    return gulp.src('src/css/main.css')
     .pipe(plumber({ errorHandler: notify.onError() }))
     // .pipe(newer('build/css'))
     .pipe(sourcemaps.init())
@@ -114,7 +114,7 @@ gulp.task('css', function() {
 
 //pics for css
 gulp.task('pics', function() {
-    return gulp.src('src/scss/pics/**/*.{jpg,jpeg,png,svg}', {since: gulp.lastRun('pics')})
+    return gulp.src('src/css/pics/**/*.{jpg,jpeg,png,svg}', {since: gulp.lastRun('pics')})
     .pipe(plumber({ errorHandler: notify.onError() }))
     // .pipe(newer('build/css/pics'))
     .pipe(imagemin({
@@ -176,11 +176,11 @@ gulp.task('img', function() {
 
 //svg
 gulp.task('svg:sprite', function () {
-    return gulp.src('src/scss/pics/sprite/svg/**/*.svg', {since: gulp.lastRun('svg:sprite')})
+    return gulp.src('src/css/pics/sprite/svg/**/*.svg', {since: gulp.lastRun('svg:sprite')})
     .pipe(plumber({ errorHandler: notify.onError() }))
     .pipe(newer('build/sprites/**/*.svg'))
     .pipe(svgSprite({
-        cssFile: "../../src/scss/includes/preset/sprite.scss",
+        cssFile: "../../src/css/includes/preset/sprite.css",
         svgPath: "../sprites/%f",
         baseSize: 16,
         preview: false,
@@ -195,7 +195,7 @@ gulp.task('svg:sprite', function () {
 
 //fonts
 gulp.task('fonts', function() {
-    return gulp.src('src/scss/fonts/**/*.{ttf,eot,woff,woff2}', {since: gulp.lastRun('fonts')})
+    return gulp.src('src/css/fonts/**/*.{ttf,eot,woff,woff2}', {since: gulp.lastRun('fonts')})
     .pipe(debug({ title: 'fonts:' }))
     .pipe(gulp.dest('build/css/fonts'))
 });
@@ -203,9 +203,9 @@ gulp.task('fonts', function() {
 
 // Отслеживание файлов--------------------------------------------
 gulp.task('watch', function() {
-    gulp.watch('src/scss/**/*.css', gulp.series('css'));
-    gulp.watch('src/scss/pics/**/*.*', gulp.series('pics'));
-    gulp.watch('src/scss/pics/sprite/svg/**/*.svg', gulp.series('svg:sprite'));
+    gulp.watch('src/css/**/*.css', gulp.series('css'));
+    gulp.watch('src/css/pics/**/*.*', gulp.series('pics'));
+    gulp.watch('src/css/pics/sprite/svg/**/*.svg', gulp.series('svg:sprite'));
     gulp.watch('src/html/*.html', gulp.series('html'));
     gulp.watch('src/html/widgets/**/*.html', gulp.series('widgets'));
     gulp.watch('src/pug/*.pug', gulp.series('pug'));
