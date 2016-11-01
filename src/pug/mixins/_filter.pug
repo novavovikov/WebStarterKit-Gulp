@@ -1,0 +1,14 @@
+mixin filter(name, items, main)
+	form.filter
+		if (main)
+			input(type="radio" name=name id="radio99" checked)
+			label(for="radio99")=main
+			.filter__inputs
+				for item, index in items
+					input(type="radio" name=name id="radio" + index)
+					label(for="radio" + index)=item
+		else
+			.filter__radio
+				for item, index in items
+					input(type="radio", name=name, id="radio" + index)
+					label(for="radio" + index)=item

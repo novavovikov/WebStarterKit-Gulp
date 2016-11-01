@@ -1,0 +1,9 @@
+mixin program-desc(program)
+	.program-desc__item
+		if (program.header)
+			h4=program.header
+		.program-desc__item--img
+			img(src=program.img, alt="")
+		if (program.title)
+			.program-desc__item--title=program.title
+		.program-desc__item--desc=program.desc

@@ -1,0 +1,6 @@
+mixin reviews(pics)
+	each img in pics
+		.reviews-item
+			.reviews-item__img
+				i(style='background-image: url(' + img + ')')
+				img(src=img, alt='')

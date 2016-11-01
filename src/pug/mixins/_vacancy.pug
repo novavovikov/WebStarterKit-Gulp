@@ -1,0 +1,9 @@
+mixin vacancy(vacancy)
+	.vacancy-item
+		a.wrap-link(href="#")
+		.vacancy-item__img
+			img(src="img/event-3.svg", alt="")
+		.vacancy-item__date=vacancy.date
+		.vacancy-item__position=vacancy.position
+		.vacancy-item__desc=vacancy.desc
+		a.btn.btn--red.vacancy-item--btn(href="#") Подробнее

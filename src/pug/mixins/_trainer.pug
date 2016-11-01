@@ -1,0 +1,36 @@
+
+mixin trainer(trainer)
+	.trainers-item
+		if (trainer.header)
+			.trainers-item__header
+				.trainers-item__header--title
+					img(src=trainer.header.img, alt='')
+					span=trainer.header.title
+				.trainers-item__header--desc=trainer.header.desc
+		.trainers-info
+			.trainers-item__img
+				img(src=trainer.img, alt='')
+			.trainers-item__info
+				.trainers-item__info--name= trainer.name
+
+				if (trainer.position)
+					.trainers-item__info--position=trainer.position
+
+				if (trainer.role)
+					.trainers-item__info--role=trainer.role
+
+				if (trainer.desc)
+					.trainers-item__info--desc=trainer.desc
+
+				if (trainer.contacts)
+					.trainers-item__contacts
+						if (trainer.contacts.phone && trainer.contacts.phone2)
+							.trainers-item__contacts--phone!=trainer.contacts.phone + '<br />' + trainer.contacts.phone2
+						else if (trainer.contacts.phone)
+							.trainers-item__contacts--phone=trainer.contacts.phone
+						else if (trainer.contacts.phone2)
+							.trainers-item__contacts--phone=trainer.contacts.phone2
+							
+
+						if (trainer.contacts.email)
+							.trainers-item__contacts--email=trainer.contacts.email

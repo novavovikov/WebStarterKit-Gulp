@@ -1,0 +1,16 @@
+include _breadcrumbs.pug
+
+mixin caption-custom(caption)
+	.section.bg--green
+		.wrap
+			+breadcrumbs(caption.breadcrumbs)
+			.title-eq
+				h1=caption.title
+
+				p=caption.text
+
+				if (caption.text1)
+					p=caption.text1
+
+				if (caption.text2)
+					p=caption.text2

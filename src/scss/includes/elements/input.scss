@@ -1,0 +1,11 @@
+
+
+
+
+input {
+
+	&::-webkit-input-placeholder {color:#1b1b1b;}
+	&::-moz-placeholder          {color:#1b1b1b;}
+	&:-moz-placeholder           {color:#1b1b1b;}
+	&:-ms-input-placeholder      {color:#1b1b1b;}
+}

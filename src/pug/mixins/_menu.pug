@@ -1,0 +1,6 @@
+mixin menu(activeItem, items, index)
+	nav.menu-extra
+		each item, ndx in items
+			a(href='#' class=((ndx === activeItem) ? 'active': ''))=item
+			if (ndx === index)
+				br
