@@ -25,9 +25,7 @@
     "imagemin-pngquant": "^5.0.0",
     "postcss-cssnext": "^2.8.0",
     "postcss-import": "^8.1.2",
-    "postcss-nested": "^1.0.0",
-    "postcss-scss": "^0.1.9",
-    "postcss-simple-vars": "^3.0.0"
+    "postcss-nested": "^1.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

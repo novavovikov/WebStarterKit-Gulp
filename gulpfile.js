@@ -15,9 +15,7 @@ const gulp = require('gulp'),
     svgSprite = require("gulp-svg-sprites"), //SVG спрайты
     postcss = require('gulp-postcss'), //post Css для CSS
     mqpacker = require("css-mqpacker"), //Пакуем медиа-зпросы в конце css
-    simplevars = require('postcss-simple-vars'), //работа с переменными
     nestedcss = require('postcss-nested'), //работа с вложенностями как в Sass
-    scss = require('postcss-scss'), //синтаксис Sass
     cssnext = require('postcss-cssnext'), //синтаксис Sass
     importcss = require('postcss-import'); //импорт файлов CSS
 
@@ -96,17 +94,20 @@ gulp.task('pug:widgets', function() {
 //css
 gulp.task('css', function() {
     var processors = [
-                    nestedcss,
-                    simplevars,
                     importcss,
-                    cssnext,
+                    cssnext({
+                        'CustomProperties': true,
+                        'CustomFunction': true,
+                        'CustomSelectors': true,
+                    }),
+                    nestedcss,
                     mqpacker
     ];
     return gulp.src('src/css/main.css')
     .pipe(plumber({ errorHandler: notify.onError() }))
     // .pipe(newer('build/css'))
     .pipe(sourcemaps.init())
-    .pipe(postcss(processors, {syntax: scss}))
+    .pipe(postcss(processors))
     .pipe(debug({ title: 'css:' }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/css'))
