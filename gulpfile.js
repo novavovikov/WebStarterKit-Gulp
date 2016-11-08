@@ -17,7 +17,8 @@ const gulp = require('gulp'),
     mqpacker = require("css-mqpacker"), //Пакуем медиа-зпросы в конце css
     nestedcss = require('postcss-nested'), //работа с вложенностями как в Sass
     cssnext = require('postcss-cssnext'), //синтаксис Sass
-    importcss = require('postcss-import'); //импорт файлов CSS
+    importcss = require('postcss-import'), //импорт файлов CSS
+	babel = require('gulp-babel'); //транспилер для JS (ES-6)
 
 // Очистка директории ------------------------------------------------------
 gulp.task('clean', function() {
@@ -135,6 +136,9 @@ gulp.task('js', function() {
     .pipe(sourcemaps.init())
     .pipe(newer('build/js'))
     .pipe(rigger())
+    .pipe(babel({
+        presets: ['es2015']
+    }))
     .pipe(debug({ title: 'js:' }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/js'))
