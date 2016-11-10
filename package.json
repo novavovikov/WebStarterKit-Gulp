@@ -11,6 +11,7 @@
     "del": "^2.2.1",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-babel": "^6.1.2",
+    "gulp-clean-css": "^2.0.13",
     "gulp-debug": "^2.1.2",
     "gulp-imagemin": "^3.0.1",
     "gulp-newer": "^1.2.0",
@@ -18,16 +19,22 @@
     "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^6.2.0",
     "gulp-pug": "^3.0.4",
+    "gulp-rename": "^1.2.2",
     "gulp-rigger": "^0.5.8",
     "gulp-size": "^2.1.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-svg-sprites": "^4.0.2",
     "gulp-svg2png": "^2.0.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-uglifycss": "^1.0.6",
     "gulp-util": "^3.0.7",
     "imagemin-pngquant": "^5.0.0",
     "postcss-cssnext": "^2.8.0",
     "postcss-import": "^8.1.2",
-    "postcss-nested": "^1.0.0"
+    "postcss-nested": "^1.0.0",
+    "postcss-partial-import": "^2.1.0",
+    "postcss-simple-vars": "^3.0.0",
+    "postcss-sorting": "^1.7.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

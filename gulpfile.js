@@ -18,6 +18,12 @@ const gulp = require('gulp'),
     nestedcss = require('postcss-nested'), //работа с вложенностями как в Sass
     cssnext = require('postcss-cssnext'), //синтаксис Sass
     importcss = require('postcss-import'), //импорт файлов CSS
+    sorting = require('postcss-sorting'), //Комбинируем CSS для лучшей читабельности
+    vars   = require('postcss-simple-vars'), //Переменные как в Sass
+    cleanCSS = require('gulp-clean-css'), //Чистим CSS
+    uglifyCSS = require('gulp-uglifycss'), //Минфицируем JS
+    rename = require('gulp-rename'), //переименовываем файл
+    uglify = require('gulp-uglify'), //Минфицируем JS
 	babel = require('gulp-babel'); //транспилер для JS (ES-6)
 
 // Очистка директории ------------------------------------------------------
@@ -102,13 +108,22 @@ gulp.task('css', function() {
                         'CustomSelectors': true,
                     }),
                     nestedcss,
-                    mqpacker
+                    mqpacker,
+                    sorting,
+                    vars
     ];
     return gulp.src('src/css/main.css')
     .pipe(plumber({ errorHandler: notify.onError() }))
     // .pipe(newer('build/css'))
     .pipe(sourcemaps.init())
     .pipe(postcss(processors))
+    .pipe(cleanCSS({debug: true}, function(details) {
+            console.log(details.name + ': ' + details.stats.originalSize);
+            console.log(details.name + ': ' + details.stats.minifiedSize);
+        }))
+    .pipe(gulp.dest('build/css'))
+    .pipe(rename('main.min.css'))
+    .pipe(uglifyCSS())
     .pipe(debug({ title: 'css:' }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/css'))
