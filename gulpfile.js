@@ -26,7 +26,7 @@ const gulp = require('gulp'),
     calc = require("postcss-calc"), //Математические выражения
     rename = require('gulp-rename'), //переименовываем файл
     uglify = require('gulp-uglify'), //Минфицируем JS
-	babel = require('gulp-babel'); //транспилер для JS (ES-6)
+    babel = require('gulp-babel'); //транспилер для JS (ES-6)
 
 // Очистка директории ------------------------------------------------------
 gulp.task('clean', function() {
@@ -168,6 +168,9 @@ gulp.task('js:vendor', function() {
     .pipe(plumber({ errorHandler: notify.onError() }))
     .pipe(sourcemaps.init())
     .pipe(rigger())
+    .pipe(babel({
+        presets: ['es2015']
+    }))
     .pipe(debug({ title: 'vendor(js):' }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/js'))
@@ -178,6 +181,9 @@ gulp.task('js:custom', function() {
     .pipe(plumber({ errorHandler: notify.onError() }))
     .pipe(sourcemaps.init())
     .pipe(rigger())
+    .pipe(babel({
+        presets: ['es2015']
+    }))
     .pipe(debug({ title: 'custom(js):' }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/js'))
