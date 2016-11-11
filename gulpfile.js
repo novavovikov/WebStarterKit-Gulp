@@ -26,7 +26,7 @@ const gulp = require('gulp'),
     calc = require("postcss-automath"), //Математические выражения
     rename = require('gulp-rename'), //переименовываем файл
     uglify = require('gulp-uglify'), //Минфицируем JS
-	babel = require('gulp-babel'); //транспилер для JS (ES-6)
+    babel = require('gulp-babel'); //транспилер для JS (ES-6)
 
 // Очистка директории ------------------------------------------------------
 gulp.task('clean', function() {
@@ -125,8 +125,8 @@ gulp.task('css', function() {
     .pipe(gulp.dest('build/css'))
     .pipe(rename('main.min.css'))
     .pipe(cleanCSS({debug: true}, function(details) {
-            console.log(details.name + ': ' + details.stats.originalSize);
-            console.log(details.name + ': ' + details.stats.minifiedSize);
+            console.log('original: ' + (details.stats.originalSize/1024).toFixed(2) + 'kb');
+            console.log('minified: ' + (details.stats.minifiedSize/1024).toFixed(2) + 'kb');
         }))
     .pipe(debug({ title: 'css:' }))
     .pipe(sourcemaps.write('.'))
