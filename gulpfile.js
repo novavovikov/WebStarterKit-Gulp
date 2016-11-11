@@ -23,10 +23,10 @@ const gulp = require('gulp'),
     mixins = require('postcss-mixins'), //Mixins как в Sass
     cleanCSS = require('gulp-clean-css'), //Чистим и сжимаем CSS
     cyrcleFor = require('postcss-for'), //Циклы
-    calc = require("postcss-automath"), //Математические выражения
+    calc = require("postcss-calc"), //Математические выражения
     rename = require('gulp-rename'), //переименовываем файл
     uglify = require('gulp-uglify'), //Минфицируем JS
-    babel = require('gulp-babel'); //транспилер для JS (ES-6)
+	babel = require('gulp-babel'); //транспилер для JS (ES-6)
 
 // Очистка директории ------------------------------------------------------
 gulp.task('clean', function() {
