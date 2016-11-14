@@ -3,6 +3,6 @@
 
 $(document).ready(function() {
 
-    //= custom/map.js
+
 
 });

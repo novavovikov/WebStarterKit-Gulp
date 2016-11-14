@@ -26,6 +26,7 @@ const gulp = require('gulp'),
     calc = require("postcss-calc"), //Математические выражения
     rename = require('gulp-rename'), //переименовываем файл
     uglify = require('gulp-uglify'), //Минфицируем JS
+    beautify = require('gulp-beautify'), //Наводим красоту в JS
     babel = require('gulp-babel'); //транспилер для JS (ES-6)
 
 // Очистка директории ------------------------------------------------------
@@ -137,7 +138,7 @@ gulp.task('css', function() {
 gulp.task('pics', function() {
     return gulp.src('src/css/pics/**/*.{jpg,jpeg,png,svg}', {since: gulp.lastRun('pics')})
     .pipe(plumber({ errorHandler: notify.onError() }))
-    // .pipe(newer('build/css/pics'))
+    .pipe(newer('build/css/pics'))
     .pipe(imagemin({
         progressive: true,
         svgoPlugins: [{ removeViewBox: false }],
@@ -158,6 +159,11 @@ gulp.task('js', function() {
     .pipe(babel({
         presets: ['es2015']
     }))
+    .pipe(gulp.dest('build/js'))
+    .pipe(rename(function (path) {
+        path.basename += ".min";
+    }))
+    .pipe(uglify())
     .pipe(debug({ title: 'js:' }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/js'))
@@ -171,6 +177,12 @@ gulp.task('js:vendor', function() {
     .pipe(babel({
         presets: ['es2015']
     }))
+    .pipe(beautify())
+    .pipe(gulp.dest('build/js'))
+    .pipe(rename(function (path) {
+        path.basename += ".min";
+    }))
+    .pipe(uglify())
     .pipe(debug({ title: 'vendor(js):' }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/js'))
@@ -184,6 +196,11 @@ gulp.task('js:custom', function() {
     .pipe(babel({
         presets: ['es2015']
     }))
+    .pipe(gulp.dest('build/js'))
+    .pipe(rename(function (path) {
+        path.basename += ".min";
+    }))
+    .pipe(uglify())
     .pipe(debug({ title: 'custom(js):' }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/js'))

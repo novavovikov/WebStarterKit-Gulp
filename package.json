@@ -11,6 +11,7 @@
     "del": "^2.2.1",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-babel": "^6.1.2",
+    "gulp-beautify": "^2.0.1",
     "gulp-clean-css": "^2.0.13",
     "gulp-debug": "^2.1.2",
     "gulp-imagemin": "^3.0.1",
