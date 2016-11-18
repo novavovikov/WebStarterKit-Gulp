@@ -86,7 +86,6 @@ gulp.task('mixins', function() {
     }))
     .pipe(newer('build/mixins'))
     .pipe(debug({ title: 'mixins:' }))
-    .pipe(gulp.dest('build/mixins'))
 });
 
 gulp.task('pug:widgets', function() {
@@ -97,7 +96,6 @@ gulp.task('pug:widgets', function() {
     }))
     .pipe(newer('build/widgets'))
     .pipe(debug({ title: 'widgets:' }))
-    .pipe(gulp.dest('build/widgets'))
 });
 
 
