@@ -1,0 +1,9 @@
+body {
+	margin: 0;
+	font-family: RobotoRegular;
+}
+
+* {
+	box-sizing: border-box;
+	border-radius: 0;
+}
