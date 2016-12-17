@@ -46,11 +46,11 @@ gulp.task('html', function() {
     .pipe(gulp.dest('build'))
 });
 
-gulp.task('widgets', function() {
-    return gulp.src('src/html/**/*.html', {since: gulp.lastRun('widgets')})
+gulp.task('includes', function() {
+    return gulp.src('src/html/**/*.html', {since: gulp.lastRun('includes')})
     .pipe(plumber({ errorHandler: notify.onError() }))
     .pipe(rigger())
-    .pipe(debug({ title: 'widgets:' }))
+    .pipe(debug({ title: 'includes:' }))
     .pipe(gulp.dest('build'))
 });
 
@@ -77,7 +77,7 @@ gulp.task('pug:all', function() {
     .pipe(gulp.dest('build'))
 });
 
-//mixin and widgets
+//mixin and includes
 gulp.task('mixins', function() {
     return gulp.src('src/pug/mixins/*.pug', {since: gulp.lastRun('mixins')})
     .pipe(plumber({ errorHandler: notify.onError() }))
@@ -88,14 +88,14 @@ gulp.task('mixins', function() {
     .pipe(debug({ title: 'mixins:' }))
 });
 
-gulp.task('pug:widgets', function() {
-    return gulp.src('src/pug/widgets/*.pug', {since: gulp.lastRun('pug:widgets')})
+gulp.task('pug:includes', function() {
+    return gulp.src('src/pug/includes/*.pug', {since: gulp.lastRun('pug:includes')})
     .pipe(plumber({ errorHandler: notify.onError() }))
     .pipe(pug({
         pretty: true
     }))
-    .pipe(newer('build/widgets'))
-    .pipe(debug({ title: 'widgets:' }))
+    .pipe(newer('build/includes'))
+    .pipe(debug({ title: 'includes:' }))
 });
 
 
@@ -219,23 +219,23 @@ gulp.task('img', function() {
     .pipe(gulp.dest('build/img'))
 });
 
-//svg
-gulp.task('svg:sprite', function () {
-    return gulp.src('src/css/pics/sprite/svg/**/*.svg', {since: gulp.lastRun('svg:sprite')})
-    .pipe(plumber({ errorHandler: notify.onError() }))
-    .pipe(newer('build/sprites/**/*.svg'))
-    .pipe(svgSprite({
-        cssFile: "../../src/css/includes/preset/sprite.css",
-        svgPath: "../sprites/%f",
-        baseSize: 16,
-        preview: false,
-        padding: 5,
-        common: "ico",
-        selector: "ico--%f",
-    }))
-    .pipe(debug({ title: 'svg:sprite:' }))
-    .pipe(gulp.dest("build/sprites/"));
-});
+//svg 
+// gulp.task('svg:sprite', function () {
+//     return gulp.src('src/css/pics/sprite/svg/**/*.svg', {since: gulp.lastRun('svg:sprite')})
+//     .pipe(plumber({ errorHandler: notify.onError() }))
+//     .pipe(newer('build/sprites/**/*.svg'))
+//     .pipe(svgSprite({
+//         cssFile: "../../src/css/includes/preset/sprite.css",
+//         svgPath: "../sprites/%f",
+//         baseSize: 16,
+//         preview: false,
+//         padding: 5,
+//         common: "ico",
+//         selector: "ico--%f",
+//     }))
+//     .pipe(debug({ title: 'svg:sprite:' }))
+//     .pipe(gulp.dest("build/sprites/"));
+// });
 
 
 //fonts
@@ -250,12 +250,12 @@ gulp.task('fonts', function() {
 gulp.task('watch', function() {
     gulp.watch('src/css/**/*.css', gulp.series('css'));
     gulp.watch('src/css/pics/**/*.*', gulp.series('pics'));
-    gulp.watch('src/css/pics/sprite/svg/**/*.svg', gulp.series('svg:sprite'));
+    // gulp.watch('src/css/pics/sprite/svg/**/*.svg', gulp.series('svg:sprite'));
     gulp.watch('src/html/*.html', gulp.series('html'));
-    gulp.watch('src/html/widgets/**/*.html', gulp.series('widgets'));
+    gulp.watch('src/html/includes/**/*.html', gulp.series('includes'));
     gulp.watch('src/pug/*.pug', gulp.series('pug'));
     gulp.watch('src/pug/mixins/*.pug', gulp.series('mixins', 'pug:all'));
-    gulp.watch('src/pug/widgets/*.pug', gulp.series('pug:widgets', 'pug:all'));
+    gulp.watch('src/pug/includes/*.pug', gulp.series('pug:includes', 'pug:all'));
     gulp.watch('src/js/vendor/**/*.js', gulp.series('js:vendor'));
     gulp.watch('src/js/custom/**/*.js', gulp.series('js:custom'));
     gulp.watch('src/js/*.js', gulp.series('js'));
@@ -266,7 +266,7 @@ gulp.task('watch', function() {
 // Для продакшна -------------------------------------------------
 gulp.task('build', gulp.series(
     'clean',
-    gulp.parallel('css', 'html', 'pug', 'js', 'fonts', 'pics', 'img', 'svg:sprite')));
+    gulp.parallel('css', 'html', 'pug', 'js', 'fonts', 'pics', 'img', /*'svg:sprite'*/)));
 
 
 // Для запуска сервера--------------------------------------------
