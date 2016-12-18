@@ -220,22 +220,31 @@ gulp.task('img', function() {
 });
 
 //svg 
-// gulp.task('svg:sprite', function () {
-//     return gulp.src('src/css/pics/sprite/svg/**/*.svg', {since: gulp.lastRun('svg:sprite')})
-//     .pipe(plumber({ errorHandler: notify.onError() }))
-//     .pipe(newer('build/sprites/**/*.svg'))
-//     .pipe(svgSprite({
-//         cssFile: "../../src/css/includes/preset/sprite.css",
-//         svgPath: "../sprites/%f",
-//         baseSize: 16,
-//         preview: false,
-//         padding: 5,
-//         common: "ico",
-//         selector: "ico--%f",
-//     }))
-//     .pipe(debug({ title: 'svg:sprite:' }))
-//     .pipe(gulp.dest("build/sprites/"));
-// });
+gulp.task('svg:sprite', function () {
+    return gulp.src('src/css/pics/sprite/svg/**/*.svg', {since: gulp.lastRun('svg:sprite')})
+    .pipe(plumber({ errorHandler: notify.onError() }))
+    .pipe(newer('build/sprites/**/*.svg'))
+    .pipe(svgSprite({
+        cssFile: "../../src/css/includes/preset/sprite.css",
+        svgPath: "../sprites/%f",
+        baseSize: 16,
+        preview: false,
+        padding: 5,
+        common: "ico",
+        selector: "ico--%f",
+    }))
+    .pipe(debug({ title: 'svg:sprite:' }))
+    .pipe(gulp.dest("build/sprites/"));
+});
+
+
+
+//source
+gulp.task('source', function() {
+    return gulp.src('src/source/**/*.*', {since: gulp.lastRun('source')})
+    .pipe(debug({ title: 'source:' }))
+    .pipe(gulp.dest('build/source'))
+});
 
 
 //fonts
@@ -250,23 +259,24 @@ gulp.task('fonts', function() {
 gulp.task('watch', function() {
     gulp.watch('src/css/**/*.css', gulp.series('css'));
     gulp.watch('src/css/pics/**/*.*', gulp.series('pics'));
-    // gulp.watch('src/css/pics/sprite/svg/**/*.svg', gulp.series('svg:sprite'));
+    gulp.watch('src/css/pics/sprite/svg/**/*.svg', gulp.series('svg:sprite'));
     gulp.watch('src/html/*.html', gulp.series('html'));
-    gulp.watch('src/html/includes/**/*.html', gulp.series('includes'));
+    gulp.watch('src/html/widgets/**/*.html', gulp.series('widgets'));
     gulp.watch('src/pug/*.pug', gulp.series('pug'));
     gulp.watch('src/pug/mixins/*.pug', gulp.series('mixins', 'pug:all'));
-    gulp.watch('src/pug/includes/*.pug', gulp.series('pug:includes', 'pug:all'));
+    gulp.watch('src/pug/widgets/*.pug', gulp.series('pug:widgets', 'pug:all'));
     gulp.watch('src/js/vendor/**/*.js', gulp.series('js:vendor'));
     gulp.watch('src/js/custom/**/*.js', gulp.series('js:custom'));
     gulp.watch('src/js/*.js', gulp.series('js'));
     gulp.watch('src/fonts/**/*.*', gulp.series('fonts'));
     gulp.watch('src/img/**/*.*', gulp.series('img'));
+    gulp.watch('src/source/**/*.*', gulp.series('source'));
 });
 
 // Для продакшна -------------------------------------------------
 gulp.task('build', gulp.series(
     'clean',
-    gulp.parallel('css', 'html', 'pug', 'js', 'fonts', 'pics', 'img', /*'svg:sprite'*/)));
+    gulp.parallel('css', 'html', 'pug', 'js', 'fonts', 'pics', 'img', 'source')));
 
 
 // Для запуска сервера--------------------------------------------
