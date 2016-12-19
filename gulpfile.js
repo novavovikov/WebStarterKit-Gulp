@@ -261,10 +261,10 @@ gulp.task('watch', function() {
     gulp.watch('src/css/pics/**/*.*', gulp.series('pics'));
     gulp.watch('src/css/pics/sprite/svg/**/*.svg', gulp.series('svg:sprite'));
     gulp.watch('src/html/*.html', gulp.series('html'));
-    gulp.watch('src/html/widgets/**/*.html', gulp.series('widgets'));
+    gulp.watch('src/html/includes/**/*.html', gulp.series('includes'));
     gulp.watch('src/pug/*.pug', gulp.series('pug'));
     gulp.watch('src/pug/mixins/*.pug', gulp.series('mixins', 'pug:all'));
-    gulp.watch('src/pug/widgets/*.pug', gulp.series('pug:widgets', 'pug:all'));
+    gulp.watch('src/pug/includes/*.pug', gulp.series('pug:includes', 'pug:all'));
     gulp.watch('src/js/vendor/**/*.js', gulp.series('js:vendor'));
     gulp.watch('src/js/custom/**/*.js', gulp.series('js:custom'));
     gulp.watch('src/js/*.js', gulp.series('js'));
