@@ -9,7 +9,7 @@ const gulp = require('gulp'),
     browserSync = require('browser-sync').create(), //локальный сервер с livereload
     notify = require('gulp-notify'), //уведомление об ошибках
     plumber = require('gulp-plumber'), //отлавливаем ошибки на потоке
-    rigger = require('gulp-rigger'), // для склейки файлов
+    include = require('gulp-include'), // для склейки файлов
     imagemin = require('gulp-imagemin'), //минификация изображений
     pngquant = require('imagemin-pngquant'), //минификация изображений
     svgSprite = require("gulp-svg-sprites"), //SVG спрайты
@@ -40,7 +40,7 @@ gulp.task('clean', function() {
 gulp.task('html', function() {
     return gulp.src('src/html/*.html', {since: gulp.lastRun('html')})
     .pipe(plumber({ errorHandler: notify.onError() }))
-    .pipe(rigger())
+    .pipe(include())
     .pipe(newer('build'))
     .pipe(debug({ title: 'html:' }))
     .pipe(gulp.dest('build'))
@@ -49,7 +49,7 @@ gulp.task('html', function() {
 gulp.task('includes', function() {
     return gulp.src('src/html/**/*.html', {since: gulp.lastRun('includes')})
     .pipe(plumber({ errorHandler: notify.onError() }))
-    .pipe(rigger())
+    .pipe(include())
     .pipe(debug({ title: 'includes:' }))
     .pipe(gulp.dest('build'))
 });
@@ -153,7 +153,7 @@ gulp.task('js', function() {
     .pipe(plumber({ errorHandler: notify.onError() }))
     .pipe(sourcemaps.init())
     .pipe(newer('build/js'))
-    .pipe(rigger())
+    .pipe(include())
     .pipe(babel({
         presets: ['es2015']
     }))
@@ -171,7 +171,7 @@ gulp.task('js:vendor', function() {
     return gulp.src('src/js/vendor.js')
     .pipe(plumber({ errorHandler: notify.onError() }))
     .pipe(sourcemaps.init())
-    .pipe(rigger())
+    .pipe(include())
     .pipe(babel({
         presets: ['es2015']
     }))
@@ -190,7 +190,7 @@ gulp.task('js:custom', function() {
     return gulp.src('src/js/custom.js')
     .pipe(plumber({ errorHandler: notify.onError() }))
     .pipe(sourcemaps.init())
-    .pipe(rigger())
+    .pipe(include())
     .pipe(babel({
         presets: ['es2015']
     }))
