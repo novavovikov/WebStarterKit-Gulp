@@ -119,16 +119,13 @@ gulp.task('css', function() {
     return gulp.src('src/css/main.css')
     .pipe(plumber({ errorHandler: notify.onError() }))
     // .pipe(newer('build/css'))
-    .pipe(sourcemaps.init())
     .pipe(postcss(processors))
     .pipe(gulp.dest('build/css'))
-    .pipe(rename('main.min.css'))
-    .pipe(cleanCSS({debug: true}, function(details) {
+    .pipe(rename('main.min.css'))    .pipe(cleanCSS({debug: true}, function(details) {
             console.log('original: ' + (details.stats.originalSize/1024).toFixed(2) + 'kb');
             console.log('minified: ' + (details.stats.minifiedSize/1024).toFixed(2) + 'kb');
         }))
     .pipe(debug({ title: 'css:' }))
-    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/css'))
 });
 
@@ -257,7 +254,7 @@ gulp.task('fonts', function() {
 
 // Отслеживание файлов--------------------------------------------
 gulp.task('watch', function() {
-    gulp.watch('src/css/**/*.css', gulp.series('css'));
+    gulp.watch(['src/css/*.css', 'src/css/includes/blocks/*.css', 'src/css/includes/elements/*.css', 'src/css/includes/layout/*.css', 'src/css/includes/preset/*.css', 'src/css/includes/animation/*.css'], gulp.series('css'));
     gulp.watch('src/css/pics/**/*.*', gulp.series('pics'));
     gulp.watch('src/css/pics/sprite/svg/**/*.svg', gulp.series('svg:sprite'));
     gulp.watch('src/html/*.html', gulp.series('html'));
@@ -265,11 +262,11 @@ gulp.task('watch', function() {
     gulp.watch('src/pug/*.pug', gulp.series('pug'));
     gulp.watch('src/pug/mixins/*.pug', gulp.series('mixins', 'pug:all'));
     gulp.watch('src/pug/includes/*.pug', gulp.series('pug:includes', 'pug:all'));
-    gulp.watch('src/js/vendor/**/*.js', gulp.series('js:vendor'));
-    gulp.watch('src/js/custom/**/*.js', gulp.series('js:custom'));
+    gulp.watch('src/js/vendor/*.js', gulp.series('js:vendor'));
+    gulp.watch('src/js/custom/*.js', gulp.series('js:custom'));
     gulp.watch('src/js/*.js', gulp.series('js'));
+    gulp.watch('src/img/*.*', gulp.series('img'));
     gulp.watch('src/fonts/**/*.*', gulp.series('fonts'));
-    gulp.watch('src/img/**/*.*', gulp.series('img'));
     gulp.watch('src/source/**/*.*', gulp.series('source'));
 });
 

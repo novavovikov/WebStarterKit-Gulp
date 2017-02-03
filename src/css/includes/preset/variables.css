@@ -7,7 +7,14 @@ $until: max-width;
 $wide: 1365px;
 $desktop: 1023px;
 $tablet: 759px;
+$mobile: 480px;
 /*color*/
 $gray: #5b6770;
 $blue: #54c7c3;
 $red: #ff3333;
+$green: #256545;
+/*fonts*/
+$Bold: RobotoBold;
+$Light: RobotoLight;
+$Regular: RobotoRegular;
+$Medium: RobotoMedium;

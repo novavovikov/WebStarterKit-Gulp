@@ -1,6 +1,30 @@
 body {
 	margin: 0;
-	font-family: RobotoRegular;
+	font-family: $Regular;
+	font-size: 16px;
+	color: #585858;
+
+	@media($from: $mobile) {
+		
+	}
+
+	@media($from: $tablet) {
+		
+	}
+
+	@media($from: $desktop) {
+		
+	}
+
+	@media($from: $wide) {
+		
+	}
+}
+
+a {
+	color: inherit;
+	text-decoration: inherit;
+	transition: .4s;
 }
 
 * {
