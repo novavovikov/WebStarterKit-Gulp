@@ -110,11 +110,11 @@ gulp.task('css', function() {
                     }),
                     cyrcleFor,
                     nestedcss,
-                    mqpacker,
                     sorting,
+                    mqpacker(),
                     vars,
                     mixins,
-                    calc
+                    calc,
     ];
     return gulp.src('src/css/main.css')
     .pipe(plumber({ errorHandler: notify.onError() }))
