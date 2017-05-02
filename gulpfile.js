@@ -15,15 +15,10 @@ const gulp = require('gulp'),
     svgSprite = require("gulp-svg-sprites"), //SVG спрайты
     postcss = require('gulp-postcss'), //post Css для CSS
     mqpacker = require("css-mqpacker"), //Пакуем медиа-зпросы в конце css
-    nestedcss = require('postcss-nested'), //работа с вложенностями как в Sass
-    cssnext = require('postcss-cssnext'), //синтаксис Sass
-    importcss = require('postcss-import'), //импорт файлов CSS
-    sorting = require('postcss-sorting'), //Комбинируем CSS для лучшей читабельности
-    vars = require('postcss-simple-vars'), //Переменные как в Sass
-    mixins = require('postcss-mixins'), //Mixins как в Sass
+    importcss = require('postcss-smart-import'), //импорт файлов CSS
+    precss = require('precss'), //синтаксис Sass
+    autoprefixer = require('autoprefixer'), //вендорные префиксы
     cleanCSS = require('gulp-clean-css'), //Чистим и сжимаем CSS
-    cyrcleFor = require('postcss-for'), //Циклы
-    calc = require("postcss-calc"), //Математические выражения
     rename = require('gulp-rename'), //переименовываем файл
     uglify = require('gulp-uglify'), //Минфицируем JS
     beautify = require('gulp-beautify'), //Наводим красоту в JS
@@ -57,7 +52,7 @@ gulp.task('includes', function() {
 //Pug(HTML templates)
 gulp.task('pug', function() {
     return gulp.src('src/pug/*.pug', {since: gulp.lastRun('pug')})
-    .pipe(plumber({ errorHandler: notify.onError() }))    
+    .pipe(plumber({ errorHandler: notify.onError() }))
     .pipe(pug({
         pretty: true
     }))
@@ -69,7 +64,7 @@ gulp.task('pug', function() {
 //Pug(HTML ALl)
 gulp.task('pug:all', function() {
     return gulp.src('src/pug/*.pug')
-    .pipe(plumber({ errorHandler: notify.onError() }))    
+    .pipe(plumber({ errorHandler: notify.onError() }))
     .pipe(pug({
         pretty: true
     }))
@@ -103,18 +98,9 @@ gulp.task('pug:includes', function() {
 gulp.task('css', function() {
     var processors = [
                     importcss,
-                    cssnext({
-                        'CustomProperties': true,
-                        'CustomFunction': true,
-                        'CustomSelectors': true,
-                    }),
-                    cyrcleFor,
-                    nestedcss,
-                    sorting,
-                    mqpacker(),
-                    vars,
-                    mixins,
-                    calc,
+                    precss,
+                    autoprefixer,
+                    mqpacker                    
     ];
     return gulp.src('src/css/main.css')
     .pipe(plumber({ errorHandler: notify.onError() }))
@@ -148,56 +134,56 @@ gulp.task('pics', function() {
 gulp.task('js', function() {
     return gulp.src('src/js/*.js', {since: gulp.lastRun('js')})
     .pipe(plumber({ errorHandler: notify.onError() }))
-    .pipe(sourcemaps.init())
+    // .pipe(sourcemaps.init())
     .pipe(newer('build/js'))
     .pipe(include())
     .pipe(babel({
         presets: ['es2015']
     }))
-    .pipe(gulp.dest('build/js'))
+    // .pipe(gulp.dest('build/js'))
     .pipe(rename(function (path) {
         path.basename += ".min";
     }))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(debug({ title: 'js:' }))
-    .pipe(sourcemaps.write('.'))
+    // .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/js'))
 });
 
 gulp.task('js:vendor', function() {
     return gulp.src('src/js/vendor.js')
     .pipe(plumber({ errorHandler: notify.onError() }))
-    .pipe(sourcemaps.init())
+    // .pipe(sourcemaps.init())
     .pipe(include())
     .pipe(babel({
         presets: ['es2015']
     }))
     .pipe(beautify())
-    .pipe(gulp.dest('build/js'))
+    // .pipe(gulp.dest('build/js'))
     .pipe(rename(function (path) {
         path.basename += ".min";
     }))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(debug({ title: 'vendor(js):' }))
-    .pipe(sourcemaps.write('.'))
+    // .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/js'))
 });
 
 gulp.task('js:custom', function() {
     return gulp.src('src/js/custom.js')
     .pipe(plumber({ errorHandler: notify.onError() }))
-    .pipe(sourcemaps.init())
+    // .pipe(sourcemaps.init())
     .pipe(include())
     .pipe(babel({
         presets: ['es2015']
     }))
-    .pipe(gulp.dest('build/js'))
+    // .pipe(gulp.dest('build/js'))
     .pipe(rename(function (path) {
         path.basename += ".min";
     }))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(debug({ title: 'custom(js):' }))
-    .pipe(sourcemaps.write('.'))
+    // .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/js'))
 });
 
@@ -216,25 +202,23 @@ gulp.task('img', function() {
     .pipe(gulp.dest('build/img'))
 });
 
-//svg 
+//svg
 gulp.task('svg:sprite', function () {
-    return gulp.src('src/css/pics/sprite/svg/**/*.svg', {since: gulp.lastRun('svg:sprite')})
+    return gulp.src('src/sprites/**/*.svg', {since: gulp.lastRun('svg:sprite')})
     .pipe(plumber({ errorHandler: notify.onError() }))
-    .pipe(newer('build/sprites/**/*.svg'))
+    .pipe(newer('build/sprites/*.svg'))
     .pipe(svgSprite({
-        cssFile: "../../src/css/includes/preset/sprite.css",
-        svgPath: "../sprites/%f",
-        baseSize: 16,
+        cssFile: "../../src/css/includes/preset/sprites.css",
         preview: false,
-        padding: 5,
         common: "ico",
-        selector: "ico--%f",
+        selector: "_%f",
+        svg: {
+            sprite: "sprite.svg"
+        }
     }))
     .pipe(debug({ title: 'svg:sprite:' }))
     .pipe(gulp.dest("build/sprites/"));
 });
-
-
 
 //source
 gulp.task('source', function() {
@@ -273,7 +257,7 @@ gulp.task('watch', function() {
 // Для продакшна -------------------------------------------------
 gulp.task('build', gulp.series(
     'clean',
-    gulp.parallel('css', 'html', 'pug', 'js', 'fonts', 'pics', 'img', 'source')));
+    gulp.parallel('css', 'html', 'pug', 'svg:sprite', 'js', 'fonts', 'pics', 'img', 'source')));
 
 
 // Для запуска сервера--------------------------------------------
