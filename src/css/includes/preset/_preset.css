@@ -24,10 +24,18 @@ body {
 a {
 	color: inherit;
 	text-decoration: inherit;
-	transition: .4s;
+	transition: .3s;
 }
 
 * {
 	box-sizing: border-box;
 	border-radius: 0;
+
+	&:before {
+		box-sizing: border-box;
+	}
+
+	&:after {
+		box-sizing: border-box;
+	}
 }

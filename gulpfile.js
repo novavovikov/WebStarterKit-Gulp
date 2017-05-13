@@ -17,6 +17,7 @@ const gulp = require('gulp'),
     mqpacker = require("css-mqpacker"), //Пакуем медиа-зпросы в конце css
     importcss = require('postcss-smart-import'), //импорт файлов CSS
     precss = require('precss'), //синтаксис Sass
+    calc = require('postcss-calc'), //синтаксис Sass
     autoprefixer = require('autoprefixer'), //вендорные префиксы
     cleanCSS = require('gulp-clean-css'), //Чистим и сжимаем CSS
     rename = require('gulp-rename'), //переименовываем файл
@@ -99,6 +100,7 @@ gulp.task('css', function() {
     var processors = [
                     importcss,
                     precss,
+                    calc,
                     autoprefixer,
                     mqpacker                    
     ];
@@ -224,7 +226,7 @@ gulp.task('svg:sprite', function () {
 gulp.task('source', function() {
     return gulp.src('src/source/**/*.*', {since: gulp.lastRun('source')})
     .pipe(debug({ title: 'source:' }))
-    .pipe(gulp.dest('build/source'))
+    .pipe(gulp.dest('build/'))
 });
 
 
