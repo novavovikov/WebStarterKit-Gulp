@@ -29,6 +29,7 @@
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",
     "imagemin-pngquant": "^5.0.0",
+    "postcss-calc": "^6.0.0",
     "postcss-smart-import": "^0.6.12",
     "precss": "^1.4.0"
   },
