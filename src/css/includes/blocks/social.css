@@ -1,0 +1,26 @@
+.social {
+  font-family: $FA;
+
+  &__item {
+	display: inline-block;
+	vertical-align: middle;
+	width: 22px;
+	height: 22px;
+	line-height: 22px;
+	font-size: 12px;
+	border-radius: 50%;
+	color: #aaaaaa;
+	margin: 0 5px 0 0;
+	background: #fff;
+	text-align: center;
+
+	&:last-child {
+	  margin-right: 0;
+	}
+
+	&:hover {
+	  background: $yellow;
+	  color: #fff;
+	}
+  }
+}

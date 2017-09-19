@@ -1,9 +1,17 @@
 @charset "UTF-8";
+
 /*preset*/
 @import 'includes/preset/variables';
 @import 'includes/preset/fonts';
 @import 'includes/preset/_preset';
+
 /*layout*/
+@import 'includes/layout/layout';
+
 /*elements*/
+
 /*block*/
+@import 'includes/blocks/header';
+@import 'includes/blocks/social';
+
 /*animation*/
