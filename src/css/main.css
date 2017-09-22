@@ -21,6 +21,7 @@
 @import 'includes/blocks/banner';
 @import 'includes/blocks/advantages';
 @import 'includes/blocks/products';
+@import 'includes/blocks/products-item';
 @import 'includes/blocks/tabs';
 
 /*animation*/

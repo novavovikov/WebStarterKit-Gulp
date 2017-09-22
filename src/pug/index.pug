@@ -76,13 +76,14 @@ html
 						.tabs-content
 							#tab-1
 								.products-list
-								+products-item([
-									{
-										img: 'img/product-1.jpg',
-										title: 'Мед-суфле  с апельсином',
-										price: '265.00'
-									}
-								])
+									each item in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+										+products-item([
+											{
+												img: 'img/product-1.jpg',
+												title: 'Мед-суфле  с апельсином',
+												price: '265.00'
+											}
+										])
 
 
 	
