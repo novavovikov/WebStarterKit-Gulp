@@ -4,14 +4,23 @@
 @import 'includes/preset/variables';
 @import 'includes/preset/fonts';
 @import 'includes/preset/_preset';
+@import 'includes/preset/typography';
 
 /*layout*/
 @import 'includes/layout/layout';
 
 /*elements*/
+@import 'includes/elements/logo';
+@import 'includes/elements/btn';
 
 /*block*/
 @import 'includes/blocks/header';
 @import 'includes/blocks/social';
+@import 'includes/blocks/menu';
+@import 'includes/blocks/basket';
+@import 'includes/blocks/banner';
+@import 'includes/blocks/advantages';
+@import 'includes/blocks/products';
+@import 'includes/blocks/tabs';
 
 /*animation*/

@@ -1,0 +1,13 @@
+mixin banner(list)
+    .banner
+        each item, ndx in list
+            .banner-item
+                .banner-item__img
+                    img(src=item.img, alt="")
+                .banner-item__content
+                    .banner-item__title=item.title
+                    .banner-item__desc=item.desc
+                a.btn.banner-item__btn(href="#") подробнее
+                .banner-item__counter
+                    mark 0#{ndx + 1}
+                    |  /0#{list.length}

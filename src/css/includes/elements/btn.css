@@ -1,0 +1,39 @@
+.btn {
+    display: inline-block;
+    vertical-align: middle;
+    min-width: 220px;
+    padding: 0 30px;
+    height: 60px;
+    line-height: 60px;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 20px;
+    font-family: $Black;
+    letter-spacing: 5px;
+    background: #facb3b;
+    color: #fff;
+    border-radius: 30px;
+
+    &:hover {
+        background: #f99200;
+    }
+}
+
+.btn-transparent {
+    display: inline-block;
+    vertical-align: middle;
+    height: 35px;
+    line-height: 33px;
+    padding: 0 11px;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #828283;
+    border-radius: 18px;
+    border: 1px solid #e1e1e1;
+    font-family: $Medium;
+
+    &:hover {
+        color: #f99200;
+        border-color: #f99200;
+    }
+}
