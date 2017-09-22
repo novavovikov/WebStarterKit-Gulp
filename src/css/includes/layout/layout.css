@@ -4,3 +4,10 @@
     max-width: 1170px;
     margin: 0 auto;
 }
+
+.container {
+    padding: 0 15px;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+}

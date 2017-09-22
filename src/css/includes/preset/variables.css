@@ -18,8 +18,9 @@ $yellow: #facb3b;
 
 /*fonts*/
 
-$Bold: RobotoBold;
-$Light: RobotoLight;
-$Regular: RobotoRegular;
-$Medium: RobotoMedium;
-$FA: 'FontAwesome';
+$Bold: 'RobotoBold', sans-serif;
+$Light: 'RobotoLight', sans-serif;
+$Regular: 'RobotoRegular', sans-serif;
+$Medium: 'RobotoMedium', sans-serif;
+$Black: 'RobotoBlack', sans-serif;
+$FA: 'FontAwesome', sans-serif;

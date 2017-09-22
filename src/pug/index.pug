@@ -1,9 +1,89 @@
+include mixins/_banner.pug
+include mixins/_advantages-item.pug
+include mixins/_products-item.pug
+
 doctype html
 html
 	include includes/head.pug
 	body
 		include includes/header.pug
 		main.main
+			+banner([
+				{
+					img: 'img/banner-1.jpg',
+					title: 'МЕД СУФЛЕ ОПТОМ ОТ ПРОИЗВОДИТЕЛЯ ',
+					desc: 'ДОСТАВКА ПО ВСЕЙ РОССИИ'
+				},
+			])
+
+			section.advantages
+				.container
+					.advantages-caption
+						.advantages-caption__section Мед содержит органические кислоты (яблочную, винную, лимонную, молочную и щавельную), биогенные стимуляторы (которые позитивно влияют на организм, активизируя его жизнедеятельность).
+						.advantages-caption__section
+							h2 Bee organic - 
+								strong натуральный мед
+								.advantages-caption__subtitle ABOUT NATURIX FARMFOOD
+					.advantages-list
+						+advantages-item([
+							{
+								img: 'img/advantages-1.png',
+								title: 'цена и <strong>высокое качество</strong>',
+								text: 'Являясь производителем, мы можем предложить лучшие цены на нашу продукцию и удобные схемы сотрудничества.'
+							},
+							{
+								img: 'img/advantages-2.png',
+								title: '100%  <strong>натуральный продукт</strong>',
+								text: 'Мы используем только натуральный мед, свежие ягоды, фрукты и орехи, владеем собственными пасеками.'
+							},
+							{
+								img: 'img/advantages-3.png',
+								title: 'более   <strong>20 вкусов</strong>',
+								text: 'Мы предлагаем вам не просто мед, а необычный медовый десерт, который Вы полюбите с первой ложечки. <br>Выберите свою любимый вкус.'
+							},
+							{
+								img: 'img/advantages-4.png',
+								title: 'вкусно и  <strong>полезно</strong>',
+								text: 'Наш мед не только вкусный, но  еще и очень полезный. Является прекрасным профилактическим лечебным средством от многих болезней и недугов.'
+							},
+							{
+								img: 'img/advantages-5.png',
+								title: 'контроль  <strong>качества</strong>',
+								text: 'Весь закупаемый мед проходит строгий контроль в современной лаборатории.'
+							},
+						])
+
+			section.products
+				.wrap
+					.products__subtitle СВЕЖИЙ МЕД ДЛЯ ВАШЕГО ЗДОРОВЬЯ
+					h2.products__title 100 % 
+						strong  органический мед
+						
+					.tabs
+						.tabs-controls
+							.tabs-controls__item
+								a.tabs-controls__link(href="#") вся 
+									strong продукция
+							.tabs-controls__item.active
+								a.tabs-controls__link(href="#") мед-
+									strong суфле
+							.tabs-controls__item
+								a.tabs-controls__link(href="#") натуральный 
+									strong  мед
+							.tabs-controls__item
+								a.tabs-controls__link(href="#") варенье
+
+						.tabs-content
+							#tab-1
+								.products-list
+								+products-item([
+									{
+										img: 'img/product-1.jpg',
+										title: 'Мед-суфле  с апельсином',
+										price: '265.00'
+									}
+								])
+
 
 	
 		include includes/footer.pug

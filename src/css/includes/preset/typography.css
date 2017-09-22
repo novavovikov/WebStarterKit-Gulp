@@ -1,0 +1,12 @@
+strong, b {
+    font-family: $Bold;
+    font-weight: normal;
+}
+
+h2, .h2 {
+    font-size: 40px;
+    line-height: 1.2;
+    font-family: $Light;
+    font-weight: normal;
+    margin: 0;
+}

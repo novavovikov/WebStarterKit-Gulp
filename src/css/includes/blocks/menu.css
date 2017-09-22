@@ -1,0 +1,32 @@
+.menu {
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    display: inline-block;
+
+    &__item {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        padding: 15px 20px;
+        line-height: 1;
+
+        &._active {
+            &:before {
+                content: '';
+                position: absolute;
+                left: 50%;
+                bottom: 0;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: #f9c219;
+                margin-left: -3px;
+            }
+        }
+
+        &:hover {
+            color: $yellow;
+        }
+    }
+}

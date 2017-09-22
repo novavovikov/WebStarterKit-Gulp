@@ -1,0 +1,30 @@
+.tabs {
+
+}
+
+.tabs-controls {
+    font-size: 0;
+    margin: 0 0 35px;
+
+    &__item {
+        display: inline-block;
+        vertical-align: middle;
+        height: 30px;
+        line-height: 30px;
+        font-family: $Regular;
+        background: #fff;
+        border-radius: 15px;
+        font-size: 14px;
+        margin: 0 13px;
+
+        &.active {
+            color: #fff;
+            background: $yellow;
+        }
+    }
+
+    &__link {
+        display: block;
+        padding: 0 20px;
+    }
+}

@@ -1,0 +1,8 @@
+mixin advantages-item(list)
+    each item in list
+        .advantages-item
+            .advantages-item__img
+                img(src=item.img, alt="")
+            .advantages-item__title!=item.title
+            .advantages-item__text!=item.text
+            a.btn-transparent(href="#") УЗНАТЬ БОЛЬШЕ

@@ -38,6 +38,16 @@
     font-style: normal;
     font-weight: normal;
 }
+/* font-family: "RobotoBlack"; */
+@font-face {
+    font-family: "RobotoBlack";
+    src: url("fonts/RobotoBlack/RobotoBlack.eot");
+    src: url("fonts/RobotoBlack/RobotoBlack.eot?#iefix")format("embedded-opentype"),
+    url("fonts/RobotoBlack/RobotoBlack.woff") format("woff"),
+    url("fonts/RobotoBlack/RobotoBlack.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
 
 //FontAwesome
 @font-face {

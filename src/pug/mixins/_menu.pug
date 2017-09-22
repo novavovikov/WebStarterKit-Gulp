@@ -1,5 +1,5 @@
-mixin menu(items, className, ID)
+mixin menu(items, className, activeItem, ID)
 	nav(class=((className)?className:'') id=ID)
-		for item in items
-			div(class=className + '__item')
-				a(href="#" class=className + '__link')=item
+		for item, ndx in items
+			div(class=className + '__item' + ((activeItem === ndx) ? ' _active' : ''))
+				a(href=item.link class=className + '__link')=item.label
