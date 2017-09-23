@@ -1,11 +1,21 @@
-
-
-
-
 input {
+	font-family: inherit;
+	color: inherit;
+	font-size: 15px;
+	padding: 0 35px;
+	height: 56px;
+	border-radius: 28px;
+	border: none;
+	border: 1px solid transparent;
+	outline: none;
+	transition: .2s;
 
-	&::-webkit-input-placeholder {color:#1b1b1b;}
-	&::-moz-placeholder          {color:#1b1b1b;}
-	&:-moz-placeholder           {color:#1b1b1b;}
-	&:-ms-input-placeholder      {color:#1b1b1b;}
+	&::-webkit-input-placeholder {color:#cccccc;}
+	&::-moz-placeholder          {color:#cccccc;}
+	&:-moz-placeholder           {color:#cccccc;}
+	&:-ms-input-placeholder      {color:#cccccc;}
+
+	&:focus {
+		border-color: $yellow;
+	}
 }

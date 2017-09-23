@@ -1,0 +1,67 @@
+.feedback {
+    position: relative;
+    background: url(pics/feedback.jpg) no-repeat center/cover;
+    padding: 85px 0 120px;
+    font-size: 0;
+    z-index: 0;
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: -76px;
+        width: 190px;
+        height: 287px;
+        background: url(pics/feedback-1.png) no-repeat left bottom/contain;
+        z-index: -1;
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 0;
+        top: -130px;
+        width: 231px;
+        height: 374px;
+        background: url(pics/feedback-2.png) no-repeat left bottom/contain;
+        z-index: -1;
+    }
+}
+
+.feedback-caption {
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(400/1170*100%);
+    font-size: 12px;
+    font-family: $Medium;
+
+    &__subtitle {
+        margin: 0 0 10px;
+        letter-spacing: 5px;
+    }
+
+    &__title {
+        font-family: $Light;
+        font-size: 35px;
+    }
+}
+
+.feedback-form {
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(770/1170*100%);
+    font-size: 15px;
+
+    &__input {
+        width: calc(100% - 220px);
+    }
+    
+    &__submit {
+        height: 56px;
+        line-height: 56px;
+        min-width: 200px;
+        float: right;
+    }
+}

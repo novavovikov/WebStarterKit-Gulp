@@ -14,12 +14,33 @@
     border-radius: 5px;
     overflow: hidden;
 
-    &__img {
-        object-fit: cover;
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        transition: .3s;
+    }
 
+    &:hover {
+        &:before {
+            background: rgba(238, 237, 233, .3);
+        }
+    }
+
+    &:hover &__controls {
+        transform: translate(-50%, 0) scale(1);
+    }
+
+    &__img {
         img {
             width: 100%;
             height: 100%;
+            object-fit: cover;
         }
     }
 
@@ -31,6 +52,7 @@
         height: 110px;
         background: #facb3b;
         padding: 20px 10px;
+        z-index: 2;
 
         &:before {
             content: '';
@@ -41,6 +63,103 @@
             width: 100%;
             height: 25px;
             background: url(pics/product-info.png) no-repeat center/100% 100%;
+        }
+    }
+
+    &__title {
+        font-family: $Black;
+        margin: 0 0 10px;
+    }
+    
+    &__controls {
+        position: absolute;
+        white-space: nowrap;
+        left: 50%;
+        top: 25px;
+        transform: translate(-50%, 0) scale(0);
+        height: 45px;
+        background: #fff;
+        padding: 8.5px 22px;
+        border-radius: 23px;
+        z-index: 3;
+        transition: .3s;
+    }
+
+    &__control {
+        display: inline-block;
+        vertical-align: middle;
+        background: no-repeat center/contain;
+        margin: 0 36px 0 0;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &._favorite {
+            width: 22px;
+            height: 22px;
+            background-image: url(pics/heart.svg);
+
+            &:hover {
+                background-image: url(pics/heart-red.svg);
+            }
+
+            &.active {
+                background-image: url(pics/heart-red.svg);
+            }
+        }
+
+        &._basket {
+            width: 26px;
+            height: 26px;
+            background-image: url(pics/basket.svg);
+
+            &:hover {
+                background-image: url(pics/basket-red.svg);
+            }
+
+            &.active {
+                background-image: url(pics/basket-red.svg);
+            }
+        }
+
+        &._resize {
+            width: 20px;
+            height: 20px;
+            background-image: url(pics/resize.svg);
+
+            &:hover {
+                background-image: url(pics/resize-red.svg);
+            }
+
+            &.active {
+                background-image: url(pics/resize-red.svg);
+            }
+        }
+    }
+
+    &__price {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 22.92px;
+        color: #292a29;
+        padding: 0 3px;
+
+        &._current {
+            color: #ed1c24;
+        }
+        &._old {
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 50%;
+                height: 2px;
+                background: #292a29;
+            }
         }
     }
 }
