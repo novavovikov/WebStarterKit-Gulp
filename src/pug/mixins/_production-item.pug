@@ -1,0 +1,9 @@
+mixin production-item(list)
+    each item in list
+        .production-item
+            .production-item__content
+                .production-item__img
+                    img(src=item.img, alt="")
+                .production-item__info
+                    .production-item__title=item.title
+                    .production-item__text=item.text
