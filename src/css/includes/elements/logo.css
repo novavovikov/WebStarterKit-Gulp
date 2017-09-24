@@ -6,4 +6,14 @@
     background: url(pics/logo.svg) no-repeat center/contain;
     margin: -5px 124px 0 17px;
     transition: .3s;
+    
+    @media($until: $wide) {
+        width: 88px;
+        height: 51px;
+        margin-right: 40px;
+    }
+    
+    @media($until: $desktop) {
+        margin-left: 0;
+    }
 }

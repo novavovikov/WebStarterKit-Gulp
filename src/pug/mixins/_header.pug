@@ -1,6 +1,6 @@
-include ../mixins/_menu.pug
+include ./_menu.pug
 
-mixin header(className)
+mixin header(className, index)
     header(class="header" + ((className) ? (' ' + className) : ''))
         .header-top
             .wrap
@@ -21,7 +21,7 @@ mixin header(className)
 
                 +menu([
                     {
-                        link: '',
+                        link: '/',
                         label: 'ГЛАВНАЯ'
                     },
                     {
@@ -29,7 +29,7 @@ mixin header(className)
                         label: 'О НАС'
                     },
                     {
-                        link: '',
+                        link: 'catalog.html',
                         label: 'МАГАЗИН'
                     },
                     {
@@ -37,10 +37,10 @@ mixin header(className)
                         label: 'СОТРУДНИЧЕСТВО'
                     },
                     {
-                        link: '',
+                        link: 'contacts.html',
                         label: 'КОНТАКТЫ'
                     }
-                ], 'menu', 0)
+                ], 'menu', index)
 
                 a.basket(href="#")
                     .basket__counter 2

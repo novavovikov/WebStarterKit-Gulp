@@ -28,6 +28,16 @@
         background: url(pics/feedback-2.png) no-repeat left bottom/contain;
         z-index: -1;
     }
+	
+	@media($until: $widest) {
+		&:before {
+            display: none;
+        }
+
+        &:after {
+            display: none;
+        }
+	}
 }
 
 .feedback-caption {
@@ -58,5 +68,7 @@
         line-height: 56px;
         min-width: 200px;
         float: right;
+        font-size: 18px;
+        letter-spacing: 0;
     }
 }

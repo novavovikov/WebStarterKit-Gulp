@@ -7,10 +7,12 @@ $vw: 13.66;
 
 $from: min-width;
 $until: max-width;
-$wide: 1365px;
-$desktop: 1023px;
-$tablet: 759px;
-$mobile: 480px;
+$widest: 1680px;
+$extra-wide: 1280px;
+$wide: 1200px;
+$desktop: 960px;
+$tablet: 760px;
+$mobile: 550px;
 
 /*color*/
 

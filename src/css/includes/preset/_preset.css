@@ -1,6 +1,14 @@
 html {
 	font-size: 10px;
 	
+	@media($until: $widest) {
+		
+	}
+	
+	@media($until: $extra-wide) {
+		
+	}
+	
 	@media($until: $wide) {
 		
 	}
@@ -12,6 +20,7 @@ html {
 	@media($until: $tablet) {
 		
 	}
+
 	@media($until: $mobile) {
 		
 	}

@@ -1,0 +1,9 @@
+.label {
+    display: block;
+    margin: 0 0 13px;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #333333;
+    font-family: $Bold;
+    font-size: 14px;
+}

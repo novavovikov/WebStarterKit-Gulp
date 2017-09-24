@@ -12,9 +12,10 @@
     &--social {
         float: right;
         padding: 0 25px 0 0;
-    }
-
-    &._hide {
+        
+        @media($until: $desktop) {
+            padding-right: 0;
+        }
     }
 
     &._small {
@@ -26,7 +27,6 @@
         }
 
         .logo {
-            width: 88px;
             height: 51px;
         }
     }
@@ -34,23 +34,30 @@
     &._inner {
       background: #fff;
 
+      .header-top {
+          background: #3b3b3b;
+      }
+
       .menu {
         color: #333333;
       }
 
       .logo {
-        background: url(pics/logo-inner.svg) no-repeat center/contain;
+        background-image: url(pics/logo-inner.svg);
+        margin-left: 0;
+        margin-right: 107px;
+        width: 200px;
       }
 
       .basket {
         color: #333333;
 
         &:before {
-          background: url(pics/basket-brown.png) no-repeat center/contain;
+          background-image: url(pics/basket-brown.png);
         }
 
         &:after {
-          background: url(pics/basket-line-brown.png) no-repeat center/contain;
+          background-image: url(pics/basket-line-brown.png);
         }
       }
     }
@@ -68,12 +75,22 @@
     height: 120px;
     line-height: 120px;
     font-size: 15px;
+    
+    @media($until: $wide) {
+        height: 65px;
+        line-height: 65px;
+    }
 }
 
 .header-contacts {
     padding: 0 0 0 34px;
     display: inline-block;
     vertical-align: middle;
+    
+    @media($until: $desktop) {
+        padding-left: 0;
+    }
+
     &__item {
         display: inline-block;
         vertical-align: middle;

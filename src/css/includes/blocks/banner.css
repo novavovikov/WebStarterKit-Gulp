@@ -37,10 +37,18 @@
 
         &._prev {
             left: 60px;
+            
+            @media($until: $wide) {
+                left: 20px;
+            }
         }
 
         &._next {
             right: 60px;
+            
+            @media($until: $wide) {
+                right: 20px;
+            }
         }
 
         &:hover {
@@ -56,6 +64,10 @@
     position: relative;
     height: 770px;
     width: 100%;
+    
+    @media($until: $wide) {
+        height: 650px;
+    }
 
     &__img {
         position: absolute;
@@ -110,9 +122,36 @@
     &__btn {
         position: absolute;
         left: 50%;
-        bottom: 0;
+        bottom: 50px;
         transform: translate(-50%, 0);
         transition: .5s ease-in-out .7s;
         opacity: 0;
+    }
+
+    &__counter {
+        position: absolute;
+        right: 155px;
+        font-size: 27.95px;
+        bottom: 25px;
+        z-index: 5;
+        color: #fff;
+        font-family: $Medium;
+        padding: 0 0 0 15px;
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            right: 100%;
+            top: 50%;
+            width: 67px;
+            height: 1px;
+            margin-top: -1px;
+            background: $yellow;
+        }
+
+        mark {
+            font-family: $Black;
+        }
     }
 }
