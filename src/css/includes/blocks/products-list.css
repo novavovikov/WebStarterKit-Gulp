@@ -1,4 +1,6 @@
 .products-list {
+    position: relative;
+
     &__scrollbar {
         width: 272px;
         height: 10px;

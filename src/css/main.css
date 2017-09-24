@@ -5,6 +5,7 @@
 @import 'includes/preset/fonts';
 @import 'includes/preset/_preset';
 @import 'includes/preset/typography';
+@import 'includes/preset/owl';
 
 /*layout*/
 @import 'includes/layout/layout';
