@@ -2,6 +2,8 @@ include mixins/_banner.pug
 include mixins/_advantages-item.pug
 include mixins/_products-item.pug
 include mixins/_production-item.pug
+include mixins/_reviews.pug
+include mixins/_news.pug
 
 doctype html
 html
@@ -181,5 +183,38 @@ html
 
 
 			include includes/feedback.pug
+
+			.reviews
+				.wrap
+					.reviews-list
+						each item in [1, 2, 3, 4]
+							+reviews([
+								{
+									photo: 'img/photo-1.jpg',
+									text: '“Добрый день! Сегодняшний мой отзыв про мед, его виды, полезные свойства и множество рецептов, проверенных временем.”',
+									name: 'Иван Иванов'
+								}
+							])
+
+			section.news
+				.wrap
+					h2.h3.news__title НОВОСТИ
+
+					.news-list
+						+news([
+							{
+								img: 'img/news-1.jpg',
+								date: '26 ИЮНЯ 2016',
+								title: 'Полезные свойства <strong>меда</strong>',
+								text: 'Мед получается из нектара цветов медоносных растений, который поступает в зоб рабочих пчел; при этом под действием слюны часть тросникового сахара превращается в виноградный - главную составную часть меда',
+							},
+							{
+								img: 'img/news-2.jpg',
+								date: '26 ДЕКАБРЯ 2016',
+								title: 'Какой мед лучше всего <strong>борется с простудой</strong>',
+								text: 'Мед получается из нектара цветов медоносных растений, который поступает в зоб рабочих пчел; при этом под действием слюны часть тросникового сахара превращается в виноградный - главную составную часть меда',
+							}
+						])
+
 
 		include includes/footer.pug

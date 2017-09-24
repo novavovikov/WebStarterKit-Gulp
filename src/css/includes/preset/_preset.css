@@ -1,17 +1,18 @@
 html {
-	@media($from: $mobile) {
+	font-size: 10px;
+	
+	@media($until: $wide) {
+		
+	}
+	
+	@media($until: $desktop) {
 		
 	}
 
-	@media($from: $tablet) {
+	@media($until: $tablet) {
 		
 	}
-
-	@media($from: $desktop) {
-		
-	}
-
-	@media($from: $wide) {
+	@media($until: $mobile) {
 		
 	}
 }
@@ -23,6 +24,7 @@ body {
 	line-height: 1.2;
 	color: #525252;
 	min-width: 320px;
+	overflow-x: hidden;
 }
 
 a {

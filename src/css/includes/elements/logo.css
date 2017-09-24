@@ -5,4 +5,5 @@
     height: 102px;
     background: url(pics/logo.svg) no-repeat center/contain;
     margin: 0 124px 0 17px;
+    transition: .3s;
 }

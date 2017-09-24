@@ -1,11 +1,34 @@
 .header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
     background: #1c1d1d;
     color: #fff;
     font-family: $Medium;
+    z-index: 30;
+    transition: .3s;
 
     &--social {
         float: right;
         padding: 0 25px 0 0;
+    }
+
+    &._hide {
+    }
+
+    &._small {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+
+        .header-bottom {
+            height: 65px;
+            line-height: 65px;
+        }
+
+        .logo {
+            width: 88px;
+            height: 51px;
+        }
     }
 }
 

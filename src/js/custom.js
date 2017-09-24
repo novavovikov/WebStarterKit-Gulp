@@ -5,4 +5,6 @@ $(document).ready(function() {
 
 	//=include custom/init.js
 
+	//=include custom/header.js
+
 });

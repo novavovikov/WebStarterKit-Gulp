@@ -27,5 +27,7 @@
 @import 'includes/blocks/production';
 @import 'includes/blocks/production-item';
 @import 'includes/blocks/feedback';
+@import 'includes/blocks/reviews';
+@import 'includes/blocks/news';
 
 /*animation*/

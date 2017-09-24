@@ -1,0 +1,10 @@
+mixin news(list)
+    each item in list
+        .news-item
+            .news-item__img
+                img(src=item.img, alt="")
+            .news-item__info
+                .news-item__date=item.date
+                .news-item__title!=item.title
+                .news-item__text!=item.text
+                a.news-item__more(href="#") подробнее
