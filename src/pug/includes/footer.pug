@@ -1,5 +1,75 @@
 footer.footer
-
+	
+	.footer__main
+		.wrap
+			
+			a.footer__top(href="#")
+				
+			.footer__block._about
+				.footer__title
+					a.footer__logo
+							
+				.footer__desc Мед получается из нектара цветов медоносных растений, который поступает в зоб рабочих пчел; при этом под действием слюны часть тросникового сахара превращается в виноградный - главную составную часть меда
+				.footer__contacts
+					.footer__contacts-item._city г. Санкт-Петербург
+					a.footer__contacts-item._mail(href="mailto:info@beeorganic.ru") info@beeorganic.ru
+					a.footer__contacts-item._tel(href="tel:+79150700900 ")  +7 915 0700900
+						a(href="")
+				
+				
+			.footer__block
+				.footer__title О компании
+				.footer__content
+					.footer__content-item
+						a.footer__content-link(href="#") О нашем магазине
+					.footer__content-item
+						a.footer__content-link(href="#") Популярные товары
+					.footer__content-item
+						a.footer__content-link(href="#") Наша миссия
+					.footer__content-item
+						a.footer__content-link(href="#") Оплата и доставка
+					.footer__content-item
+						a.footer__content-link(href="#") Новости
+						
+			.footer__block._personal
+				.footer__title мой аккаунт
+				.footer__content
+					.footer__content-item
+						a.footer__content-link(href="#") Вход в аккаунт
+					.footer__content-item
+						a.footer__content-link(href="#") Скидки и акции
+					.footer__content-item
+						a.footer__content-link(href="#") Личный кабинет
+					.footer__content-item
+						a.footer__content-link(href="#") Отследить заказ
+					.footer__content-item
+						a.footer__content-link(href="#") История заказов
+						
+						
+			.footer__block._photo
+				.footer__title Фото instagram
+				.footer__content
+					each i in [1,2,3,4,5,6]
+						a.footer__content-img(href="#")
+							img(src="img/inst.jpg", alt="")
+		
+		
+	.footer__bottom
+		.wrap
+			.footer__copyright
+				span.footer__copyright-year ©2017 
+				span Все права защищены
+			
+			.footer__nav
+				.footer__nav
+					.footer__nav-item
+						a.footer__nav-link(href="#") Контакты
+					.footer__nav-item
+						a.footer__nav-link(href="#") Правила пользования
+					.footer__nav-item
+						a.footer__nav-link(href="#") Карта сайта
+					.footer__nav-item
+						a.footer__nav-link(href="#") Публичная оферта
 
 
 script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js")

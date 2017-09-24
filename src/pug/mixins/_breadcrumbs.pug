@@ -1,5 +1,10 @@
-mixin breadcrumbs(list)
+mixin breadcrumbs(items)
 	ul.breadcrumbs
-		for item in list
-			li.breadcrumbs__item
-				a(href="#")=item
+		li
+			a(href='#') Главная
+		for item, index in items
+			if (index === (items.length - 1))
+				li=item
+			else
+				li
+					a(href='#')=item

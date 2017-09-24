@@ -1,0 +1,41 @@
+ul.breadcrumbs {
+	display: none;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	@media($from: $desktop) {
+		display: block;
+	}
+
+	li {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+		padding-right: 13px;
+		color: #fff;
+		font-family: $Medium;
+		font-size: 12px;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+
+		&:last-child {
+			&:after {
+				display: none;
+			}
+		}
+
+		&:after {
+			content: '/';
+			position: absolute;
+			top: 50%;
+			right: 0px;
+			color: #fff;
+			transform: translate(0, -50%);
+		}
+
+		a:hover {
+			color: $yellow;
+		}
+	}
+}

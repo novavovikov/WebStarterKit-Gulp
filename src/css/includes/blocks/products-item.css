@@ -16,6 +16,7 @@
     height: 440px;
     margin: 0 15px 55px;
     font-size: 20px;
+    background: #f1f0ec;
     border-radius: 5px;
     overflow: hidden;
 
@@ -75,7 +76,7 @@
         font-family: $Black;
         margin: 0 0 10px;
     }
-    
+
     &__controls {
         position: absolute;
         white-space: nowrap;
