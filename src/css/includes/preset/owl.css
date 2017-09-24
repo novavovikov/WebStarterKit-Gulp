@@ -1,0 +1,74 @@
+.disabled {
+    visibility: hidden;
+}
+
+.owl-loaded {
+    position: relative;
+}
+
+.owl-stage {
+    white-space: nowrap;
+}
+
+.owl-stage-outer {
+    overflow: hidden;
+}
+
+.owl-item {
+    white-space: normal;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.owl-nav {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0;
+    z-index: 5;
+    text-align: center;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.owl-prev, .owl-next {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 40px;
+    height: 27px;
+    background: #fff;
+    color: #9f9f9f;
+    cursor: pointer;
+    transition: .25s;
+
+    &:before {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 27px;
+        line-height: 27px;
+        text-align: center;
+        font-size: 11.18px;
+        font-family: FontAwesome;
+    }
+
+    &:hover {
+        background: #cecece;
+    }
+}
+
+.owl-prev {
+    &:before {
+        content: '';
+    }
+}
+
+.owl-next {
+    border-left: 1px solid #dddddd;
+    
+    &:before {
+        content: '';
+    }
+}

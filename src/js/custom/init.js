@@ -1,4 +1,4 @@
-//checker
+//sliders
 $('.products-list').each(function () {
 	var $wrap = $(this),
 		$scrollbar = $wrap.find('.products-list__scrollbar'),
@@ -32,12 +32,80 @@ $('.products-list').each(function () {
 	}).init();
 });
 
-// btn top
+$('.banner').each(function() {
+	var banner = $(this),
+		nextArrow, prevArrow;
+	
+	$('.banner').owlCarousel({
+		items: 1,
+		loop: true,
+		autoplay: true,
+		smartSpeed: 600,
+		autoplayHoverPause: true,
+		nav: true,
+		navText: ['', ''],
+		onInitialized : function() {
+			var prevSlide = banner.find('.owl-item.active').prev(),
+				nextSlide = banner.find('.owl-item.active').next(),
+				prevImg = prevSlide.find('img').attr('src'),
+				nextImg = nextSlide.find('img').attr('src');
 
-$(function () {
+
+			banner.append('<div class="banner__preview _prev"></div>');
+			banner.append('<div class="banner__preview _next"></div>');
+			
+			prevArrow = banner.children('.banner__preview._prev');
+			nextArrow = banner.children('.banner__preview._next');
+		
+			prevArrow.click(function() {
+				banner.trigger('prev.owl.carousel');
+			});
+		
+			nextArrow.click(function() {
+				banner.trigger('next.owl.carousel');
+			});
+			
+			nextArrow.css({
+				'background-image': `url(${nextImg})`
+			});
+
+			prevArrow.css({
+				'background-image': `url(${prevImg})`
+			});
+		},
+		onTranslated: function() {
+			var prevSlide = banner.find('.owl-item.active').prev(),
+				nextSlide = banner.find('.owl-item.active').next(),
+				prevImg = prevSlide.find('img').attr('src'),
+				nextImg = nextSlide.find('img').attr('src');
+
+			if (nextArrow !== undefined) {
+				nextArrow.css({
+					'background-image': `url(${nextImg})`
+				});
+			}
+
+			if (prevArrow !== undefined) {
+				prevArrow.css({
+					'background-image': `url(${prevImg})`
+				});
+			}
+		}
+	});
+});
+
+$('.reviews-list').owlCarousel({
+	items: 2,
+	autoWidth: true,
+	loop: true,
+	nav: true
+});
+
+// btn top
+(function () {
 	$('.footer__top').click(function () {
 		$('body,html').animate({
 			scrollTop: 0}, 400);
 			return false;
 		});
-});
+})();
