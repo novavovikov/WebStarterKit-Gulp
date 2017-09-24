@@ -3,6 +3,12 @@ strong, b {
     font-weight: normal;
 }
 
+mark {
+  font-family: $Black;
+  color: $yellow;
+  background: transparent;
+}
+
 h2, .h2 {
     font-size: 4rem;
     line-height: 1.2;
