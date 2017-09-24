@@ -1,12 +1,17 @@
-.products-list {
-    margin: 0 -15px;
+.products-items {
     font-size: 0;
+    white-space: nowrap;
+    margin: 0 -15px;
+
+    &__slide {
+        display: inline-block;
+        vertical-align: top;
+        white-space: normal;
+    }
 }
 
 .products-item {
     position: relative;
-    display: inline-block;
-    vertical-align: top;
     width: 270px;
     height: 440px;
     margin: 0 15px 55px;

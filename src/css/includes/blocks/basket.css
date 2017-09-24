@@ -4,10 +4,7 @@
     padding: 0 30px 0 42px;
     font-size: 15px;
     color: #fff;
-
-    &:hover {
-        color: $yellow;
-    }
+    transition: .3s;
 
     &:before {
         content: '';
@@ -38,6 +35,10 @@
         vertical-align: middle;
         width: 115px;
         line-height: normal;
+        
+        &:hover {
+            color: $yellow;
+        }
     }
 
     &__counter {
