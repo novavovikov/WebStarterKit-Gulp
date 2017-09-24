@@ -4,7 +4,15 @@ strong, b {
 }
 
 h2, .h2 {
-    font-size: 40px;
+    font-size: 4rem;
+    line-height: 1.2;
+    font-family: $Light;
+    font-weight: normal;
+    margin: 0;
+}
+
+h3, .h3 {
+    font-size: 3.5rem;
     line-height: 1.2;
     font-family: $Light;
     font-weight: normal;

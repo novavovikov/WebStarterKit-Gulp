@@ -41,11 +41,6 @@
         margin: 0 0 10px;
         letter-spacing: 5px;
     }
-
-    &__title {
-        font-family: $Light;
-        font-size: 35px;
-    }
 }
 
 .feedback-form {

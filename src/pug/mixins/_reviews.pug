@@ -1,0 +1,8 @@
+mixin reviews(list)
+    each item in list
+        .reviews-item
+            .reviews-item__photo
+                img(src=item.photo, alt="")
+            .reviews-item__info
+                .reviews-item__text=item.text
+                .reviews-item__name=item.name
