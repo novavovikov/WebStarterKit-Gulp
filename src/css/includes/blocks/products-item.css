@@ -66,13 +66,12 @@
             background: url(pics/product-info.png) no-repeat center/100% 100%;
         }
     }
-<<<<<<< HEAD
 
     &__title {
         font-family: $Black;
         margin: 0 0 10px;
     }
-    
+
     &__controls {
         position: absolute;
         white-space: nowrap;
@@ -165,6 +164,3 @@
         }
     }
 }
-=======
-}
->>>>>>> brave

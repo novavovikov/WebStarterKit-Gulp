@@ -12,20 +12,6 @@ mixin products-item(list)
                     else
                         .products-item__price=item.price
             .products-item__controls
-                a.products-item__control._favorite.active(href="#")
-                a.products-item__control._basket(href="#")
-                a.products-item__control._resize(href="#")
-                  
-        if item.catalog
-          .products-item._catalog
-              .products-item__img
-                  img(src=item.img, alt="")
-              .products-item__info
-                  .products-item__title!=item.title
-                  .products-item__prices
-                      if item.olPrice
-                          .products-item__price._current=item.price
-                          .products-item__price._old=item.oldPrice
-                      else
-                          .products-item__price=item.price
-                        
+              a.products-item__control._favorite.active(href="#")
+              a.products-item__control._basket(href="#")
+              a.products-item__control._resize(href="#")
