@@ -30,6 +30,30 @@
             height: 51px;
         }
     }
+
+    &._inner {
+      background: #fff;
+
+      .menu {
+        color: #333333;
+      }
+
+      .logo {
+        background: url(pics/logo-inner.svg) no-repeat center/contain;
+      }
+
+      .basket {
+        color: #333333;
+
+        &:before {
+          background: url(pics/basket-brown.png) no-repeat center/contain;
+        }
+
+        &:after {
+          background: url(pics/basket-line-brown.png) no-repeat center/contain;
+        }
+      }
+    }
 }
 
 .header-top {

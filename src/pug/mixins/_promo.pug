@@ -1,0 +1,13 @@
+include ./_breadcrumbs.pug
+
+mixin promo(promo)
+	.promo
+		.promo__bg
+			img(src=promo.src, alt="")
+		.promo__content
+			.wrap
+				h2.promo__title
+					mark BeeOrganic
+					span=promo.h2
+					
+				+breadcrumbs([promo.breadcrumbs])

@@ -1,23 +1,18 @@
-include mixins/_breadcrumbs.pug
+include mixins/_promo.pug
 include mixins/_products-item.pug
 
 doctype html
 html
 	include includes/head.pug
 	body
-		include includes/header.pug
+		include includes/header-inner.pug
 		main.main
-			
-			section.promo
-				.promo__bg
-					img(src="img/catalog-bg.jpg", alt="")
-				.promo__content
-					.wrap
-						h2.promo__title
-							mark BeeOrganic
-							| Магазин
-							
-						+breadcrumbs(['Магазин'])
+						
+			+promo({
+				src: 'img/catalog-bg.jpg',
+				h2: 'Магазин',
+				breadcrumbs: 'Магазин'
+			})
 						
 			section.catalog
 				.wrap
