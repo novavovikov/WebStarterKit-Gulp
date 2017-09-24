@@ -11,3 +11,16 @@ mixin products-item(list)
                         .products-item__price._old=item.oldPrice
                     else
                         .products-item__price=item.price
+        if item.catalog
+          .products-item._catalog
+              .products-item__img
+                  img(src=item.img, alt="")
+              .products-item__info
+                  .products-item__title!=item.title
+                  .products-item__prices
+                      if item.olPrice
+                          .products-item__price._current=item.price
+                          .products-item__price._old=item.oldPrice
+                      else
+                          .products-item__price=item.price
+                        

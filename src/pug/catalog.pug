@@ -1,0 +1,59 @@
+include mixins/_breadcrumbs.pug
+include mixins/_products-item.pug
+
+doctype html
+html
+	include includes/head.pug
+	body
+		include includes/header.pug
+		main.main
+			
+			section.promo
+				.promo__bg
+					img(src="img/catalog-bg.jpg", alt="")
+				.promo__content
+					.wrap
+						h2.promo__title
+							mark BeeOrganic
+							| Магазин
+							
+						+breadcrumbs(['Магазин'])
+						
+			section.catalog
+				.wrap
+					form.catalog__sorting
+						.catalog__sorting-item
+							.catalog__sorting-label Категории
+							select.select
+								option Весь ассортимент
+								option Мёд-суфлк
+								option Мёд-крем
+								option Мёд с орехами
+						.catalog__sorting-item
+							.catalog__sorting-label Сортировать
+							select.select
+								option По популярности
+								option По названию
+						.catalog__sorting-item
+							.catalog__sorting-label Цена
+							select.select
+								option Сначала низкая
+								option Сначала высокая
+								
+				.catalog__results
+					.wrap
+						each item in [1, 2, 3, 4, 5, 6]
+							+products-item([
+								{
+									catalog: true,
+									img: 'img/product-2.png',
+									title: 'organic garlic',
+									price: '250.00'
+								}
+							])
+
+			
+
+
+	
+		include includes/footer.pug

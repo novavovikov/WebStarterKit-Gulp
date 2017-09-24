@@ -12,6 +12,7 @@
 /*elements*/
 @import 'includes/elements/logo';
 @import 'includes/elements/btn';
+@import 'includes/elements/select';
 
 /*block*/
 @import 'includes/blocks/header';
@@ -23,5 +24,9 @@
 @import 'includes/blocks/products';
 @import 'includes/blocks/products-item';
 @import 'includes/blocks/tabs';
+@import 'includes/blocks/footer';
+@import 'includes/blocks/breadcrumbs';
+@import 'includes/blocks/promo';
+@import 'includes/blocks/catalog';
 
 /*animation*/
