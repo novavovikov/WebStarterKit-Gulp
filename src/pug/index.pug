@@ -1,3 +1,4 @@
+include mixins/_header.pug
 include mixins/_banner.pug
 include mixins/_advantages-item.pug
 include mixins/_products-item.pug
@@ -9,7 +10,7 @@ doctype html
 html
 	include includes/head.pug
 	body
-		include includes/header.pug
+		+header()
 		main.main
 			+banner([
 				{

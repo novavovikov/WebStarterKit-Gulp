@@ -7,6 +7,20 @@
         right: 60px;
     }
 
+    .owl-item {
+        &.active {
+            .banner-item__content {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+
+            .banner-item__btn {
+                opacity: 1;
+                bottom: 100px;
+            }
+        }
+    }
+
     &__preview {
         position: absolute;
         top: 50%;
@@ -73,7 +87,7 @@
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -100%);
         max-width: 100%;
         padding: 25px;
         text-align: center;
@@ -82,6 +96,8 @@
         text-transform: uppercase;
         letter-spacing: 5px;
         font-family: $Black;
+        opacity: 0;
+        transition: .5s ease-in-out .7s;
         z-index: 2;
     }
 
@@ -94,7 +110,9 @@
     &__btn {
         position: absolute;
         left: 50%;
-        bottom: 100px;
+        bottom: 0;
         transform: translate(-50%, 0);
+        transition: .5s ease-in-out .7s;
+        opacity: 0;
     }
 }
