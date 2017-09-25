@@ -5,6 +5,24 @@
     &__title {
         margin-bottom: 80px;
     }
+    
+    @media($until: $wide) {
+        padding-bottom: 75px;
+        text-align: left;
+
+        &__title {
+            margin-bottom: 40px;
+        }
+    }
+    
+    @media($until: $tablet) {
+        text-align: center;
+
+        &__title {
+            margin: 0 auto;
+            max-width: 500px;
+        }
+    }
 }
 
 .news-list {
@@ -16,13 +34,30 @@
     vertical-align: top;
     width: 50%;
     
+    @media($until: $tablet) {
+        display: block;
+        width: auto;
+        max-width: 500px;
+        padding: 30px 0;
+        border-bottom: 1px solid #cecece;
+        margin: 0 auto;
+
+        &:last-child {
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+    }
+    
     &__info {
         display: inline-block;
         vertical-align: top;
         width: calc(100% - 295px);
         font-size: 14px;
-        text-align: left;
         padding: 0 10px 0 0;
+        
+        @media($until: $wide) {
+            width: 100%;
+        }
     }
 
     &__img {
@@ -51,6 +86,18 @@
             border-radius: 10px;
             z-index: -1;
         }
+        
+        @media($until: $wide) {
+            padding: 0;
+            margin: 0 0 20px;
+            width: 220px;
+
+            &:after {
+                top: 0;
+                right: 0;
+                bottom: 0;
+            }
+        }
     }
 
     &__date {
@@ -59,6 +106,10 @@
         font-family: $Medium;
         color: #9f9f9f;
         margin: 0 0 20px;
+        
+        @media($until: $wide) {
+            margin-bottom: 10px;
+        }
     }
 
     &__title {
@@ -78,6 +129,18 @@
             width: 30px;
             height: 2px;
             background: #efefef;
+        }
+        
+        @media($until: $wide) {
+            height: auto;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        
+        @media($until: $tablet) {
+            &:before {
+                display: none;
+            }
         }
     }
 

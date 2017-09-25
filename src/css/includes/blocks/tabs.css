@@ -1,10 +1,8 @@
-.tabs {
-
-}
-
 .tabs-controls {
     font-size: 0;
     margin: 0 0 35px;
+    white-space: nowrap;
+    overflow: auto;
 
     &__item {
         display: inline-block;
@@ -16,6 +14,10 @@
         border-radius: 15px;
         font-size: 14px;
         margin: 0 13px;
+        
+        @media($until: $tablet) {
+            margin: 0 6px;
+        }
 
         &.active {
             color: #fff;
@@ -26,5 +28,9 @@
     &__link {
         display: block;
         padding: 0 20px;
+        
+        @media($until: $tablet) {
+            padding: 0 12px;
+        }
     }
 }

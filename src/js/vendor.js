@@ -5,3 +5,5 @@
 //=include vendor/ion.rangeSlider.js
 
 //=include vendor/owl.carousel.min.js
+
+//=include vendor/jquery.toggleItem.js

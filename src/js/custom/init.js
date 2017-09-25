@@ -98,13 +98,45 @@ $('.reviews-list').owlCarousel({
 	items: 2,
 	autoWidth: true,
 	loop: true,
-	nav: true
+	nav: true,
+	responsive : {
+		0 : {
+			center: true
+		},
+		1200 : {
+			center: false
+		}
+	}
 });
 
+(function() {
+	var slider = $('.advantages-list');
+
+	function checkResolution() {
+		if ($(window).width() < 760) {
+			slider.owlCarousel({
+				items: 3,
+				autoWidth: true,
+				loop: true,
+				autoplay: true,
+				autoplaTimeout: 1200,
+				smartSpeed: 400
+			});
+		} else {
+			slider.trigger('destroy.owl.carousel');
+		}
+	};
+
+	checkResolution();
+
+	$(window).resize(checkResolution);
+})();
+
+//toggle
+$('[data-toggle]').toggleItem();
+
 // btn top
-
 $(function () {
-
 	$('.footer__top').click(function () {
 		$('body,html').animate({
 			scrollTop: 0}, 400);

@@ -20,4 +20,8 @@ textarea {
 	&:focus {
 		border-color: $yellow;
 	}
+    
+    @media($until: $tablet) {
+        height: 100px;
+    }
 }

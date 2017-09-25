@@ -19,4 +19,8 @@ input {
 	&:focus {
 		border-color: $yellow;
 	}
+    
+    @media($until: $tablet) {
+        height: 45px;
+    }
 }

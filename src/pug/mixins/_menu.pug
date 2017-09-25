@@ -3,3 +3,11 @@ mixin menu(items, className, activeItem, ID)
 		for item, ndx in items
 			div(class=className + '__item' + ((activeItem === ndx) ? ' _active' : ''))
 				a(href=item.link class=className + '__link')=item.label
+				if (item.submenu)
+					.submenu
+						each el in item.submenu
+							.submenu__item
+								a.submenu__link(href="#")=el.label
+								if (el.list)
+									each elem in el.list
+										a.submenu__sublink(href="#")=elem 

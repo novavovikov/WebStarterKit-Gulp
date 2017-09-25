@@ -1,9 +1,16 @@
 .feedback {
     position: relative;
-    background: url(pics/feedback.jpg) no-repeat center/cover;
+    background: #d2cbcb  url(pics/feedback.jpg) no-repeat center/cover;
     padding: 85px 0 120px;
     font-size: 0;
     z-index: 0;
+	
+	@media($until: $desktop) {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-image: none;
+        text-align: center;
+	}
 
     &:before {
         content: '';
@@ -51,6 +58,12 @@
         margin: 0 0 10px;
         letter-spacing: 5px;
     }
+	
+	@media($until: $desktop) {
+        display: block;
+        width: auto;
+        margin: 0 auto 20px;
+	}
 }
 
 .feedback-form {
@@ -61,6 +74,11 @@
 
     &__input {
         width: calc(100% - 220px);
+        
+        @media($until: $mobile) {
+            width: 100%;
+            margin: 0 0 20px;
+        }
     }
     
     &__submit {
@@ -70,5 +88,16 @@
         float: right;
         font-size: 18px;
         letter-spacing: 0;
+        
+        @media($until: $mobile) {
+            float: none;
+        }
     }
+	
+	@media($until: $desktop) {
+        display: block;
+        width: auto;
+        max-width: 770px;
+        margin: 0 auto;
+	}
 }

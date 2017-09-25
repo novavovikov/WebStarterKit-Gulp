@@ -1,6 +1,10 @@
 .advantages {
     position: relative;
-    padding: 90px 0 340px;
+    padding: 90px 0 300px;
+
+    .owl-nav {
+        display: none;
+    }
 
     &:before {
         content: '';
@@ -25,12 +29,31 @@
         background: url(pics/advantages-bg-2.jpg) no-repeat left bottom/contain;
         z-index: -1;
     }
+    
+    @media($until: $extra-wide) {
+        padding-top: 45px;
+    }
+    
+    @media($until: $desktop) {
+        padding-bottom: 45px;
+
+        &:before {
+            display: none;
+        }
+
+        &:after {
+            display: none;
+        }
+    }
 }
 
 .advantages-caption {
     margin: 0 0 40px;
     text-align: center;
-    text-align: center;
+    
+    @media($until: $tablet) {
+        margin-bottom: 0;
+    }
 
     &__section {
         display: inline-block;
@@ -39,11 +62,25 @@
         max-width: 620px;
         padding: 0 20px;
         text-align: right;
-        font-size: 16px;
-        line-height: calc(28.8/16);
+        font-size: 1.6rem;
+        line-height: calc(2.88rem);
 
         &:nth-child(even) {
             text-align: left;
+        }
+        
+        @media($until: $extra-wide) {
+            text-align: center;
+            max-width: 650px;
+            
+            &:nth-child(even) {
+                text-align: center;
+            }
+        }
+        
+        @media($until: $tablet) {
+            line-height: 1.5;
+            margin-bottom: 20px;
         }
     }
 
@@ -60,6 +97,7 @@
     font-size: 0;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .advantages-item {
@@ -74,6 +112,15 @@
     font-size: 14px;
     line-height: 1.5;
     padding: 0 15px;
+    margin: 0 0 40px;
+    
+    @media($until: $extra-wide) {
+        width: 250px;
+    }
+    
+    @media($until: $tablet) {
+        margin-bottom: 0;
+    }
 
     &__img {
         height: 180px;

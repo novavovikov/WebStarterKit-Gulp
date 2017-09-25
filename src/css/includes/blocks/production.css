@@ -7,11 +7,20 @@
         font-family: $Medium;
         letter-spacing: 5px;
     }
+    
+    @media($until: $wide) {
+        padding-top: 45px;
+        padding-bottom: 45px;
+    }
 }
 
 .production-block {
     position: relative;
     padding: 90px 0 0;
+    
+    @media($until: $wide) {
+        padding-top: 45px;
+    }
 
     &__img {
         position: absolute;
@@ -26,6 +35,11 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
+            object-position: center;
+        }
+        
+        @media($until: $wide) {
+            display: none;
         }
     }
 }

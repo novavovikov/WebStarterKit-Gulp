@@ -17,6 +17,14 @@
         max-width: 370px;
         padding: 0 100px 0 0;
         text-align: right;
+        
+        @media($until: $wide) {
+            max-width: 460px;
+        }
+        
+        @media($until: $mobile) {
+            max-width: 370px;
+        }
     }
     
     &__img {
@@ -50,5 +58,24 @@
     &:nth-child(2n) &__img {
         right: auto;
         left: 0;
+    }
+    
+    @media($until: $wide) {
+        padding: 0 15px;
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    
+    @media($until: $tablet) {
+        width: 100%;
+        height: auto;
+        min-height: 78px;
+        padding: 0;
+
+        &__title {
+            margin-bottom: 15px;
+        }
     }
 }

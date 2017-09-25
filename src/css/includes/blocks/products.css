@@ -4,6 +4,16 @@
     padding: 140px 0;
     background: #ececec url(pics/products-bg-1.jpg) no-repeat center/cover;
     z-index: 0;
+    overflow: hidden;
+    
+    @media($until: $desktop) {
+        border-bottom: 30px solid $yellow;
+        padding: 60px 0;
+        
+        &:after {
+            display: none;
+        }
+    }
 
     &:before {
         content: '';
@@ -32,6 +42,10 @@
     &__subtitle {
         letter-spacing: 5px;
         margin: 0 0 10px;
+        
+        @media($until: $tablet) {
+            letter-spacing: 0;
+        }
     }
 
     &__title {

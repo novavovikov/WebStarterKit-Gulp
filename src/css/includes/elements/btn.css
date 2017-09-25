@@ -23,6 +23,14 @@ button {
     &:hover {
         background: #f99200;
     }
+    
+    @media($until: $tablet) {
+        height: 45px;
+        line-height: 45px;
+        min-width: 200px;
+        letter-spacing: 4px;
+        font-size: 18px;
+    }
 }
 
 .btn-transparent {

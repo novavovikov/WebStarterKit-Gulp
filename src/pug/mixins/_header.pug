@@ -8,6 +8,9 @@ mixin header(className, index)
                     a.header-contacts__item._mail(href="mailto:contact@beeorganic.ru") Email: contact@beeorganic.ru 
                     a.header-contacts__item._phone(href="tel:+79150700900") Тел. : +7 915 0700900 
 
+                a.menu__toggle(href="#menu" data-toggle)
+                    i
+
                 .social.header--social
                     a.social__item(href="#") 
                     a.social__item(href="#") 
@@ -34,13 +37,25 @@ mixin header(className, index)
                     },
                     {
                         link: '',
-                        label: 'СОТРУДНИЧЕСТВО'
+                        label: 'СОТРУДНИЧЕСТВО',
+                        submenu: [
+                            {
+                                label: 'ДОСТАВКА И ОПЛАТА'
+                            },
+                            {
+                                label: 'ОПТОВЫЕ УСЛОВИЯ',
+                                list: ['- мелкий опт', '- крупный опт']
+                            },
+                            {
+                                label: 'УПАКОВКА'
+                            }
+                        ]
                     },
                     {
                         link: 'contacts.html',
                         label: 'КОНТАКТЫ'
                     }
-                ], 'menu', index)
+                ], 'menu', index, 'menu')
 
                 a.basket(href="#")
                     .basket__counter 2

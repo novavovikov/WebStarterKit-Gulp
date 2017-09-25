@@ -54,4 +54,16 @@
         font-size: 12px;
         border-radius: 50%;
     }
+    
+    @media($until: $desktop) {
+        padding-right: 0;
+
+        &:after {
+            display: none;
+        }
+
+        &__sum {
+            width: auto;
+        }
+    }
 }

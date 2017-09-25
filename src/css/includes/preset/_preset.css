@@ -18,7 +18,7 @@ html {
 	}
 
 	@media($until: $tablet) {
-		
+		font-size: 8px;
 	}
 
 	@media($until: $mobile) {

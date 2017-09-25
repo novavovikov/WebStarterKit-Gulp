@@ -19,6 +19,10 @@ h2, .h2 {
     font-family: $Light;
     font-weight: normal;
     margin: 0;
+    
+    @media($until: $tablet) {
+        font-size: 3rem;
+    }
 }
 
 h3, .h3 {

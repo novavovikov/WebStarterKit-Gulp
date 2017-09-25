@@ -12,10 +12,6 @@
     &--social {
         float: right;
         padding: 0 25px 0 0;
-        
-        @media($until: $desktop) {
-            padding-right: 0;
-        }
     }
 
     &._small {
@@ -92,14 +88,50 @@
     }
 
     &__item {
+        position: relative;
         display: inline-block;
         vertical-align: middle;
+        text-align: center;
         margin: 0 45px 0 0;
+
         &:last-child {
             margin-right: 0;
         }
         &:hover {
             color: $yellow;
+        }
+        
+        @media($until: $tablet) {
+            margin-right: 10px;
+            font-size: 0;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50%;
+
+            &:before {
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 20px;
+                line-height: 20px;
+                font-size: 12px;
+                font-family: $FA;
+            }
+
+            &._mail {
+                &:before {
+                    content: '\f040';
+                }
+            }
+
+            &._phone {
+                &:before {
+                    content: '\f095';
+                }
+            }
         }
     }
 }
