@@ -5,6 +5,7 @@
 @import 'includes/preset/fonts';
 @import 'includes/preset/_preset';
 @import 'includes/preset/typography';
+@import 'includes/preset/owl';
 
 /*layout*/
 @import 'includes/layout/layout';
@@ -14,6 +15,8 @@
 @import 'includes/elements/btn';
 @import 'includes/elements/range';
 @import 'includes/elements/input';
+@import 'includes/elements/textarea';
+@import 'includes/elements/label';
 
 @import 'includes/elements/select';
 
@@ -37,5 +40,7 @@
 @import 'includes/blocks/breadcrumbs';
 @import 'includes/blocks/promo';
 @import 'includes/blocks/catalog';
+@import 'includes/blocks/contacts';
+@import 'includes/blocks/form';
 
 /*animation*/

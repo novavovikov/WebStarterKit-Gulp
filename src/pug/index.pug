@@ -1,3 +1,4 @@
+include mixins/_header.pug
 include mixins/_banner.pug
 include mixins/_advantages-item.pug
 include mixins/_products-item.pug
@@ -9,7 +10,7 @@ doctype html
 html
 	include includes/head.pug
 	body
-		include includes/header.pug
+		+header('', 0)
 		main.main
 			+banner([
 				{
@@ -17,6 +18,21 @@ html
 					title: 'МЕД СУФЛЕ ОПТОМ ОТ ПРОИЗВОДИТЕЛЯ ',
 					desc: 'ДОСТАВКА ПО ВСЕЙ РОССИИ'
 				},
+				{
+					img: 'img/banner-2.jpg',
+					title: 'МЕД СУФЛЕ ОПТОМ ОТ ПРОИЗВОДИТЕЛЯ ',
+					desc: 'ДОСТАВКА ПО ВСЕЙ РОССИИ'
+				},
+				{
+					img: 'img/banner-3.jpg',
+					title: 'МЕД СУФЛЕ ОПТОМ ОТ ПРОИЗВОДИТЕЛЯ ',
+					desc: 'ДОСТАВКА ПО ВСЕЙ РОССИИ'
+				},
+				{
+					img: 'img/banner-4.jpg',
+					title: 'МЕД СУФЛЕ ОПТОМ ОТ ПРОИЗВОДИТЕЛЯ ',
+					desc: 'ДОСТАВКА ПО ВСЕЙ РОССИИ'
+				}
 			])
 
 			section.advantages

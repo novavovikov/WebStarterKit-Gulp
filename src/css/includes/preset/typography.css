@@ -9,6 +9,10 @@ mark {
   background: transparent;
 }
 
+sup {
+    font-size: calc(14.53/27.95)em;
+}
+
 h2, .h2 {
     font-size: 4rem;
     line-height: 1.2;
@@ -23,4 +27,13 @@ h3, .h3 {
     font-family: $Light;
     font-weight: normal;
     margin: 0;
+}
+
+h4, .h4 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-family: $Regular;
+    font-weight: normal;
+    margin: 0 0 calc(30/25)em;
+    color: #333;
 }

@@ -1,15 +1,16 @@
-input {
+textarea {
 	font-family: inherit;
 	color: inherit;
 	font-size: 15px;
-	padding: 0 35px;
-	height: 56px;
+	padding: 25px;
+	height: 180px;
 	width: 100%;
 	border-radius: 28px;
 	border: none;
 	border: 1px solid transparent;
 	outline: none;
-	transition: .2s;
+    transition: .2s;
+    resize: none;
 
 	&::-webkit-input-placeholder {color:#cccccc;}
 	&::-moz-placeholder          {color:#cccccc;}

@@ -1,0 +1,48 @@
+include ./_menu.pug
+
+mixin header(className, index)
+    header(class="header" + ((className) ? (' ' + className) : ''))
+        .header-top
+            .wrap
+                .header-contacts
+                    a.header-contacts__item._mail(href="mailto:contact@beeorganic.ru") Email: contact@beeorganic.ru 
+                    a.header-contacts__item._phone(href="tel:+79150700900") Тел. : +7 915 0700900 
+
+                .social.header--social
+                    a.social__item(href="#") 
+                    a.social__item(href="#") 
+                    a.social__item(href="#") 
+                    a.social__item(href="#") 
+                    a.social__item(href="#") 
+            
+        .header-bottom
+            .wrap
+                a.logo(href="/")
+
+                +menu([
+                    {
+                        link: '/',
+                        label: 'ГЛАВНАЯ'
+                    },
+                    {
+                        link: '',
+                        label: 'О НАС'
+                    },
+                    {
+                        link: 'catalog.html',
+                        label: 'МАГАЗИН'
+                    },
+                    {
+                        link: '',
+                        label: 'СОТРУДНИЧЕСТВО'
+                    },
+                    {
+                        link: 'contacts.html',
+                        label: 'КОНТАКТЫ'
+                    }
+                ], 'menu', index)
+
+                a.basket(href="#")
+                    .basket__counter 2
+                    .basket__sum 2.170.00 руб.
+                    

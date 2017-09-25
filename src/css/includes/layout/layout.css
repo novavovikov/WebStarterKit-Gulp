@@ -14,4 +14,8 @@
 
 .main {
     padding: 155px 0 0;
+    
+    @media($until: $wide) {
+        padding-top: 100px;
+    }
 }

@@ -1,10 +1,73 @@
 .banner {
+    white-space: nowrap;
 
+    .owl-nav {
+        position: absolute;
+        bottom: 30px;
+        right: 60px;
+    }
+
+    .owl-item {
+        &.active {
+            .banner-item__content {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+
+            .banner-item__btn {
+                opacity: 1;
+                bottom: 100px;
+            }
+        }
+    }
+
+    &__preview {
+        position: absolute;
+        top: 50%;
+        margin-top: -52px;
+        border: 2px solid #FACB3B;
+        background: rgba(250, 203, 59, .2) no-repeat center/cover;
+        border-radius: 50%;
+        width: 104px;
+        height: 104px;
+        z-index: 4;
+        cursor: pointer;
+        transition: .3s;
+        opacity: .8;
+
+        &._prev {
+            left: 60px;
+            
+            @media($until: $wide) {
+                left: 20px;
+            }
+        }
+
+        &._next {
+            right: 60px;
+            
+            @media($until: $wide) {
+                right: 20px;
+            }
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
 }
 
 .banner-item {
+    display: inline-block;
+    vertical-align: top;
+    white-space: normal;
     position: relative;
     height: 770px;
+    width: 100%;
+    
+    @media($until: $wide) {
+        height: 650px;
+    }
 
     &__img {
         position: absolute;
@@ -36,7 +99,7 @@
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -100%);
         max-width: 100%;
         padding: 25px;
         text-align: center;
@@ -45,6 +108,8 @@
         text-transform: uppercase;
         letter-spacing: 5px;
         font-family: $Black;
+        opacity: 0;
+        transition: .5s ease-in-out .7s;
         z-index: 2;
     }
 
@@ -57,7 +122,36 @@
     &__btn {
         position: absolute;
         left: 50%;
-        bottom: 100px;
+        bottom: 50px;
         transform: translate(-50%, 0);
+        transition: .5s ease-in-out .7s;
+        opacity: 0;
+    }
+
+    &__counter {
+        position: absolute;
+        right: 155px;
+        font-size: 27.95px;
+        bottom: 25px;
+        z-index: 5;
+        color: #fff;
+        font-family: $Medium;
+        padding: 0 0 0 15px;
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            right: 100%;
+            top: 50%;
+            width: 67px;
+            height: 1px;
+            margin-top: -1px;
+            background: $yellow;
+        }
+
+        mark {
+            font-family: $Black;
+        }
     }
 }

@@ -1,0 +1,58 @@
+include mixins/_header.pug
+include mixins/_promo.pug
+include mixins/_products-item.pug
+
+doctype html
+html
+	include includes/head.pug
+	body
+		+header('_inner', 4)
+		main.main
+			+promo({
+				src: 'img/promo-1.jpg',
+				h2: 'Контакты',
+				breadcrumbs: 'Контакты'
+			})
+
+			.contacts
+				.wrap
+					.contacts-content
+						.contacts-info
+							h4 Адреса наших 
+								strong магазинов:
+
+							mark.contacts-info__label Магазин “BeeOrganic”
+							.contacts-info__address 142215 Санкт-Петербург, ТК “СитиМолл”, 3 этаж
+							.contacts-feedback
+								.contacts-feedback__item
+									.contacts-feedback__label Тел:
+									a.contacts-feedback__link._phone(href="tel:+79150700900") +7 915 0700900 
+								.contacts-feedback__item
+									.contacts-feedback__label Email:
+									a.contacts-feedback__link._mail(href="mailto:info@beeorganic.ru") info@beeorganic.ru
+
+						.contacts-map
+							img(src="img/map.jpg", alt="")
+							img.contacts-map__marker(src="img/marker.png", alt="")
+					
+					form.form
+						.form__title Напишите нам
+						.form__subtitle форма обратной связи
+						
+						.form__row
+							.form__col
+								label.label ВАШЕ ИМЯ
+								input.form__input(type="text" placeholder="Ваше имя")
+							.form__col
+								label.label Ваш EMAIL 
+								input.form__input(type="text" placeholder="Ваш Email ")
+							.form__col
+								label.label НОМЕР ТЕЛЕФОНА
+								input.form__input(type="text" placeholder="+7")
+						.form__row
+							label.label ТЕКСТ СООБЩЕНИЯ
+							textarea(placeholder="Напишите свое сообщение здесь")
+
+						button.btn.form__submit ОТПРАВИТЬ
+
+		include includes/footer.pug

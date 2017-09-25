@@ -3,6 +3,10 @@
     text-transform: uppercase;
     color: #fff;
     display: inline-block;
+    
+    @media($until: $desktop) {
+        display: none;
+    }
 
     &__item {
         position: relative;
@@ -27,6 +31,10 @@
 
         &:hover {
             color: $yellow;
+        }
+        
+        @media($until: $wide) {
+            padding: 10px 15px;
         }
     }
 }

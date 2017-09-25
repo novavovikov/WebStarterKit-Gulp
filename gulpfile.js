@@ -155,19 +155,17 @@ gulp.task('js', function() {
 gulp.task('js:vendor', function() {
     return gulp.src('src/js/vendor.js')
     .pipe(plumber({ errorHandler: notify.onError() }))
-    // .pipe(sourcemaps.init())
     .pipe(include())
     .pipe(babel({
         presets: ['es2015']
     }))
     .pipe(beautify())
-    // .pipe(gulp.dest('build/js'))
+    .pipe(gulp.dest('build/js'))
     .pipe(rename(function (path) {
         path.basename += ".min";
     }))
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(debug({ title: 'vendor(js):' }))
-    // .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/js'))
 });
 
