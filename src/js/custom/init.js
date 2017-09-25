@@ -41,3 +41,12 @@ $(function () {
 			return false;
 		});
 });
+
+// select
+$('select').selectStyler();
+
+// range
+
+$("#range").ionRangeSlider({
+    type: "double"
+});

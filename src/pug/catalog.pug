@@ -15,25 +15,42 @@ html
 			})
 						
 			section.catalog
-				.wrap
-					form.catalog__sorting
-						.catalog__sorting-item
-							.catalog__sorting-label Категории
-							select.select
-								option Весь ассортимент
-								option Мёд-суфлк
-								option Мёд-крем
-								option Мёд с орехами
-						.catalog__sorting-item
-							.catalog__sorting-label Сортировать
-							select.select
-								option По популярности
-								option По названию
-						.catalog__sorting-item
-							.catalog__sorting-label Цена
-							select.select
-								option Сначала низкая
-								option Сначала высокая
+				form.catalog__sorting
+					.wrap
+						.catalog__sorting-category
+							.catalog__sorting-item
+								.catalog__sorting-label Категории
+								select.catalog__sorting-select
+										option Весь ассортимент
+										option Мёд-суфле
+										option Мёд-крем
+										option Мёд с орехами
+							.catalog__sorting-item
+								.catalog__sorting-label Сортировать
+								select.catalog__sorting-select
+									option По популярности
+									option По названию
+						.catalog__sorting-price
+							.catalog__sorting-item
+								.catalog__sorting-label Цена
+								select.catalog__sorting-select
+									option Сначала низкая
+									option Сначала высокая
+									
+							.catalog__sorting-item
+								.catalog__sorting-label руб
+								.range
+									input(type="range" id="range" data-min="0" data-max="10000")
+				
+				.catalog__view
+					.catalog__view-wrap.wrap
+						.catalog__view-result
+							| найдено
+							span.catalog__view-amount 125
+							
+						.catalog__view-kind
+							a.active(href="#") 
+							a(href="#") 
 								
 				.catalog__results
 					.wrap
@@ -46,6 +63,8 @@ html
 									price: '250.00'
 								}
 							])
+							
+
 
 			
 

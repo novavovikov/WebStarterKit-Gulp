@@ -1,0 +1,143 @@
+.range {
+  display: inline-block;
+  vertical-align: middle;
+  width: 150px;
+}
+
+.irs {
+  position: relative;
+  display: block;
+  user-select: none;
+}
+
+.irs-line {
+  position: relative; display: block;
+  overflow: hidden;
+  outline: none !important;
+}
+.irs-line-left, .irs-line-mid, .irs-line-right {
+  position: absolute; display: block;
+  top: 0;
+}
+.irs-line-left {
+  left: 0; width: 11%;
+}
+.irs-line-mid {
+  left: 9%;
+  width: 82%;
+}
+.irs-line-right {
+  right: 0;
+  width: 11%;
+}
+
+.irs-bar {
+  position: absolute; display: block;
+  left: 0; width: 0;
+}
+
+.irs-slider {
+    position: absolute; display: block;
+    cursor: default;
+    z-index: 1;
+}
+
+.irs-min,
+.irs-max {
+  display: none;
+}
+
+.irs-from, .irs-to, .irs-single {
+  position: absolute; display: block;
+  bottom: -15px; left: 0;
+  cursor: default;
+  white-space: nowrap;
+  margin: 0 0 0 10px;
+}
+
+.irs-hidden-input {
+  position: absolute !important;
+  display: block !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  outline: none !important;
+  z-index: -9999 !important;
+  background: none !important;
+  border-style: solid !important;
+  border-color: transparent !important;
+  opacity: 0;
+}
+
+.irs-bar {
+  background: #666666;
+}
+
+.irs-slider {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: $yellow;
+}
+
+.irs {
+  height: 34px;
+}
+.irs-line {
+  background: #eeeeee;
+  height: 3px;
+  top: 50%;
+  transform: translate(0,-50%);
+}
+.irs-line-left {
+  height: 3px;
+  background-position: 0 -30px;
+}
+.irs-line-mid {
+  height: 3px;
+  background-position: 0 0;
+}
+.irs-line-right {
+  height: 3px;
+  background-position: 100% -30px;
+}
+
+.irs-bar {
+  height: 3px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.irs-slider {
+  top: 50%;
+  transform: translate(0,-50%);
+  cursor: pointer;
+}
+
+.irs-from, .irs-to, .irs-single {
+  position: absolute;
+    color: #999999;
+    font-family: $Bold;
+    font-size: 9px;
+    line-height: 14px;
+    text-shadow: none;
+    padding: 0 7px;
+    background: #fefdf9;
+    border: 1px solid #e7e7e7;
+    border-radius: 20px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 3px;
+    width: 4px;
+    height: 5px;
+    background: url('pics/range-coner.png') no-repeat;
+  }
+}

@@ -12,6 +12,7 @@
 /*elements*/
 @import 'includes/elements/logo';
 @import 'includes/elements/btn';
+@import 'includes/elements/range';
 @import 'includes/elements/input';
 
 @import 'includes/elements/select';
