@@ -1,0 +1,86 @@
+.pagination {
+	&-arrows {
+		margin: 0 0 23px 0;
+		text-align: center;
+	}
+
+	&-arrow {
+		display: inline-block;
+		vertical-align: middle;
+		height: 23px;
+		width: 33px;
+		font-family: $FA;
+		font-size: 10px;
+		line-height: 23px;
+		color: #9f9f9f;
+		text-align: center;
+		background: #fff;
+
+		&._prev {
+			border-radius: 20px 0 0 20px;
+		}
+
+		&._next {
+			border-radius: 0 20px 20px 0;
+		}
+
+		&:hover {
+			color: $yellow;
+		}
+	}
+
+	&-wrap {
+		text-align: center;
+	}
+
+	&-list {
+		margin: 0;
+		padding: 23px 0 82px 0;
+		list-style: none;
+		background: #fff;
+
+		li {
+			display: inline-block;
+			vertical-align: middle;
+			width: 34px;
+			height: 34px;
+			font-family: $Medium;
+			font-size: 16px;
+			color: #666666;
+			line-height: 34px;
+			text-align: center;
+			transition: .2s;
+
+			&._disabled {
+				color: #dddddd;
+			}
+
+			&:last-child {
+				position: relative;
+				margin: 0 0 0 30px;
+
+				&:before {
+					content: '...';
+					position: absolute;
+					bottom: 0;
+					left: -22px;
+					font-family: $Medium;
+					font-size: 16px;
+					color: #666666;
+				}
+			}
+		}
+
+		a {
+			display: block;
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+
+			&:hover {
+				color: #fff;
+				background: $yellow;
+			}
+		}
+	}
+}

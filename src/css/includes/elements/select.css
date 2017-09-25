@@ -29,15 +29,9 @@ select {
 		padding: 0 19px;
 		font-family: $Medium;
 		font-size: 14px;
-		line-height: 38px;
+		line-height: 36px;
 		color: #666666;
 		text-align: center;
-		/*display: inline-block;
-		vertical-align: top;
-		padding: 0 15px 0 35px;
-		width: 100%;
-		max-width: calc(100% - 30px);
-		text-overflow: ellipsis;*/
 	}
 
 	&__trigger {

@@ -1,6 +1,6 @@
-mixin products-item(list)
+mixin products-item(className,list)
     each item in list
-        .products-item
+        div(class="products-item" + ((className) ? (' ' + className) : ''))
             .products-item__img
                 img(src=item.img, alt="")
             .products-item__info

@@ -42,5 +42,6 @@
 @import 'includes/blocks/catalog';
 @import 'includes/blocks/contacts';
 @import 'includes/blocks/form';
+@import 'includes/blocks/pagination';
 
 /*animation*/
