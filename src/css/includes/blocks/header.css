@@ -26,37 +26,6 @@
             height: 51px;
         }
     }
-
-    &._inner {
-      background: #fff;
-
-      .header-top {
-          background: #3b3b3b;
-      }
-
-      .menu {
-        color: #333333;
-      }
-
-      .logo {
-        background-image: url(pics/logo-inner.svg);
-        margin-left: 0;
-        margin-right: 107px;
-        width: 200px;
-      }
-
-      .basket {
-        color: #333333;
-
-        &:before {
-          background-image: url(pics/basket-brown.png);
-        }
-
-        &:after {
-          background-image: url(pics/basket-line-brown.png);
-        }
-      }
-    }
 }
 
 .header-top {
