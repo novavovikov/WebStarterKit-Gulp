@@ -90,13 +90,13 @@
     vertical-align: top;
     white-space: normal;
     position: relative;
-    height: 770px;
+    height: calc(100vh - 155px);
     width: 100%;
     
     @media($until: $wide) {
-        height: 650px;
+        height: calc(100vh - 100px);
     }
-    
+
     @media($until: $tablet) {
         height: 360px;
     }

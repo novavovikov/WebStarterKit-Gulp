@@ -1,6 +1,4 @@
 .social {
-	font-family: $FA;
-
 	&__item {
 		display: inline-block;
 		vertical-align: middle;
