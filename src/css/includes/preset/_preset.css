@@ -1,0 +1,45 @@
+html {
+	font-size: 10px;
+
+	@media($from: $mobile) {
+		
+	}
+
+	@media($from: $tablet) {
+		
+	}
+
+	@media($from: $desktop) {
+		
+	}
+
+	@media($from: $wide) {
+		
+	}
+}
+
+body {
+	margin: 0;
+	font-family: $Regular;
+	font-size: 1.6rem;
+	color: #585858;
+}
+
+a {
+	color: inherit;
+	text-decoration: inherit;
+	transition: .3s;
+}
+
+* {
+	box-sizing: border-box;
+	border-radius: 0;
+
+	&:before {
+		box-sizing: border-box;
+	}
+
+	&:after {
+		box-sizing: border-box;
+	}
+}
