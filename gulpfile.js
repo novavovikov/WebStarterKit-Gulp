@@ -1,29 +1,35 @@
 'use strict';
 
-const gulp = require('gulp'),
-    pug = require('gulp-pug'), //шаблонизатор Pug aka Jade
-    sourcemaps = require('gulp-sourcemaps'), //создаёт sourcemap
-    del = require('del'), //удаление файлов
-    newer = require('gulp-newer'), //запускает таски только для изменившихся файлов.
-    debug = require('gulp-debug'), //отобржает какие файлы пропускаются через gulp и что с ними происходит
-    browserSync = require('browser-sync').create(), //локальный сервер с livereload
-    notify = require('gulp-notify'), //уведомление об ошибках
-    plumber = require('gulp-plumber'), //отлавливаем ошибки на потоке
-    include = require('gulp-include'), // для склейки файлов
-    imagemin = require('gulp-imagemin'), //минификация изображений
-    pngquant = require('imagemin-pngquant'), //минификация изображений
-    svgSprite = require("gulp-svg-sprites"), //SVG спрайты
-    postcss = require('gulp-postcss'), //post Css для CSS
-    mqpacker = require("css-mqpacker"), //Пакуем медиа-зпросы в конце css
-    importcss = require('postcss-smart-import'), //импорт файлов CSS
-    precss = require('precss'), //синтаксис Sass
-    calc = require('postcss-calc'), //синтаксис Sass
-    autoprefixer = require('autoprefixer'), //вендорные префиксы
-    cleanCSS = require('gulp-clean-css'), //Чистим и сжимаем CSS
-    rename = require('gulp-rename'), //переименовываем файл
-    uglify = require('gulp-uglify'), //Минфицируем JS
-    beautify = require('gulp-beautify'), //Наводим красоту в JS
-    babel = require('gulp-babel'); //транспилер для JS (ES-6)
+const   gulp = require('gulp'),
+        pug = require('gulp-pug'), //шаблонизатор Pug aka Jade
+        sourcemaps = require('gulp-sourcemaps'), //создаёт sourcemap
+        del = require('del'), //удаление файлов
+        newer = require('gulp-newer'), //запускает таски только для изменившихся файлов.
+        debug = require('gulp-debug'), //отобржает какие файлы пропускаются через gulp и что с ними происходит
+        browserSync = require('browser-sync').create(), //локальный сервер с livereload
+        notify = require('gulp-notify'), //уведомление об ошибках
+        plumber = require('gulp-plumber'), //отлавливаем ошибки на потоке
+        include = require('gulp-include'), // для склейки файлов
+        imagemin = require('gulp-imagemin'), //минификация изображений
+        pngquant = require('imagemin-pngquant'), //минификация изображений
+        svgSprite = require("gulp-svg-sprites"), //SVG спрайты
+        postcss = require('gulp-postcss'), //post Css для CSS
+        mqpacker = require("css-mqpacker"), //Пакуем медиа-зпросы в конце css
+        importcss = require('postcss-smart-import'), //импорт файлов CSS
+        precss = require('precss'), //синтаксис Sass
+        calc = require('postcss-calc'), //синтаксис Sass
+        autoprefixer = require('autoprefixer'), //вендорные префиксы
+        cleanCSS = require('gulp-clean-css'), //Чистим и сжимаем CSS
+        rename = require('gulp-rename'), //переименовываем файл
+        uglify = require('gulp-uglify'), //Минфицируем JS
+        beautify = require('gulp-beautify'), //Наводим красоту в JS
+        babel = require('gulp-babel'), //транспилер для JS (ES-6)
+
+        //react 
+        gutil = require('gulp-util'),
+        browserify = require('browserify'),
+        babelify = require('babelify'),
+        source = require('vinyl-source-stream');
 
 // Очистка директории ------------------------------------------------------
 gulp.task('clean', function() {
@@ -136,26 +142,26 @@ gulp.task('pics', function() {
 gulp.task('js', function() {
     return gulp.src('src/js/*.js', {since: gulp.lastRun('js')})
     .pipe(plumber({ errorHandler: notify.onError() }))
-    // .pipe(sourcemaps.init())
+    .pipe(sourcemaps.init())
     .pipe(newer('build/js'))
     .pipe(include())
     .pipe(babel({
-        presets: ['es2015']
+        presets: ['es2015', 'react']
     }))
     // .pipe(gulp.dest('build/js'))
     .pipe(rename(function (path) {
         path.basename += ".min";
     }))
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(debug({ title: 'js:' }))
-    // .pipe(sourcemaps.write('.'))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/js'))
 });
 
 gulp.task('js:vendor', function() {
     return gulp.src('src/js/vendor.js')
     .pipe(plumber({ errorHandler: notify.onError() }))
-    // .pipe(sourcemaps.init())
+    .pipe(sourcemaps.init())
     .pipe(include())
     .pipe(babel({
         presets: ['es2015']
@@ -165,16 +171,16 @@ gulp.task('js:vendor', function() {
     .pipe(rename(function (path) {
         path.basename += ".min";
     }))
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(debug({ title: 'vendor(js):' }))
-    // .pipe(sourcemaps.write('.'))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/js'))
 });
 
 gulp.task('js:custom', function() {
     return gulp.src('src/js/custom.js')
     .pipe(plumber({ errorHandler: notify.onError() }))
-    // .pipe(sourcemaps.init())
+    .pipe(sourcemaps.init())
     .pipe(include())
     .pipe(babel({
         presets: ['es2015']
@@ -183,10 +189,31 @@ gulp.task('js:custom', function() {
     .pipe(rename(function (path) {
         path.basename += ".min";
     }))
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(debug({ title: 'custom(js):' }))
-    // .pipe(sourcemaps.write('.'))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/js'))
+});
+
+//jsx
+gulp.task('jsx', () => {
+    return browserify({
+            entries: './src/jsx/app.jsx',
+            extensions: ['.jsx'],
+            debug: true
+        })
+        .transform('babelify', {
+            presets: ['es2015', 'react'],
+            plugins: ['transform-class-properties']
+        })
+        .bundle()
+        .on('error', function(err){
+            gutil.log(gutil.colors.red.bold('[browserify error]'));
+            gutil.log(err.message);
+            this.emit('end');
+        })
+        .pipe(source('bundle.min.js'))
+        .pipe(gulp.dest('build/js'));
 });
 
 //img for html
@@ -251,6 +278,7 @@ gulp.task('watch', function() {
     gulp.watch('src/js/vendor/*.js', gulp.series('js:vendor'));
     gulp.watch('src/js/custom/*.js', gulp.series('js:custom'));
     gulp.watch('src/js/*.js', gulp.series('js'));
+    gulp.watch('src/jsx/*.jsx', gulp.series('jsx'));
     gulp.watch('src/img/*.*', gulp.series('img'));
     gulp.watch('src/fonts/**/*.*', gulp.series('fonts'));
     gulp.watch('src/source/**/*.*', gulp.series('source'));
@@ -259,7 +287,7 @@ gulp.task('watch', function() {
 // Для продакшна -------------------------------------------------
 gulp.task('build', gulp.series(
     'clean',
-    gulp.parallel('css', 'html', 'pug', 'svg:sprite', 'js', 'fonts', 'pics', 'img', 'source')));
+    gulp.parallel('css', 'html', 'pug', 'svg:sprite', 'js', 'jsx', 'fonts', 'pics', 'img', 'source')));
 
 
 // Для запуска сервера--------------------------------------------

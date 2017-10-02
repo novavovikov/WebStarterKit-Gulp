@@ -23,6 +23,7 @@ body {
 	font-family: $Regular;
 	font-size: 1.6rem;
 	color: #585858;
+	min-width: 320px;
 }
 
 a {
